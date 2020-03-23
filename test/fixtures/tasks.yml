@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  place: MyString
   description: MyText
 
 two:
   name: MyString
-  place: MyString
   description: MyText
