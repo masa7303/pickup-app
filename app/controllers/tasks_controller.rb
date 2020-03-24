@@ -1,10 +1,13 @@
 class TasksController < ApplicationController
   def index
-    @tasks = current_user.tasks
+    @tasks = Task.all
   end
 
   def show
-    @task = current_user.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
+
+    # 口コミ表示
+    @comment = Comment.new
   end
 
   def new
@@ -12,7 +15,7 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = current_user.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 
   def create
@@ -26,13 +29,13 @@ class TasksController < ApplicationController
   end
 
   def update
-    task = current_user.find(params[:id])
+    task = current_user.tasks.find(params[:id])
     task.update!(task_params)
     redirect_to tasks_url, notice: "業務スレッド「#{task.name}」を更新しました。"
   end
 
   def destroy
-    task = current_user.find(params[:id])
+    task = current_user.tasks.find(params[:id])
     task.destroy
     redirect_to tasks_url, notice: "業務スレッド「#{task.name}」を削除しました。"
   end
