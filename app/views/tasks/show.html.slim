@@ -26,8 +26,6 @@ table.table.table-hover
   - @comments.each do |comment|
     p.card-text #{comment.body}
 
-h2.text-center 口コミ投稿する
-
 == render 'comments/form', task: @task, comment: @comment
 
 = link_to "編集", edit_task_path, class: 'btn btn-primary mr-3'

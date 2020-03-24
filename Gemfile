@@ -67,3 +67,6 @@ gem 'html2slim'
 
 # Bootstrapを導入
 gem 'bootstrap'
+
+# 日本語化
+gem 'rails-i18n', '~> 5.1'
