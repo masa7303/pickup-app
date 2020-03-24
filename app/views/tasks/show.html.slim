@@ -1,30 +1,15 @@
-h1 スレッドの詳細
-
-.nav.justify-content-end
-  = link_to '一覧', tasks_path, class: 'nav-link'
-table.table.table-hover
-  tbody
-    tr
-      th= Task.human_attribute_name(:id)
-      td= @task.id
-    tr
-      th= Task.human_attribute_name(:name)
-      td= @task.name
-    tr
-      th= Task.human_attribute_name(:description)
-      td= simple_format(h(@task.description), {}, sanitize: false, wrapper_tag: "div")
-    tr
-      th= Task.human_attribute_name(:created_at)
-      td= @task.created_at
-    tr
-      th= Task.human_attribute_name(:updated_at)
-      td= @task.updated_at
+div.task-ttl-box
+  h1.task-ttl= @task.name
+  p.task-create= @task.created_at.strftime("%Y-%m-%d %H:%M")
+  p.task-desc= @task.description
 
 - if @comments.empty?
   h2.p-3.text-center レビューがありません
 - else
   - @comments.each do |comment|
-    p.card-text #{comment.body}
+    div.comment-box
+      p.comment-body #{comment.body}
+      p.comment-create #{comment.created_at.strftime("%Y-%m-%d %H:%M")}
 
 == render 'comments/form', task: @task, comment: @comment
 

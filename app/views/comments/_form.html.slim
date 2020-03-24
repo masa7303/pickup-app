@@ -1,11 +1,7 @@
-h1.ttl-01  コメント登録
-
-.nav.justify-content-end
-  = link_to '一覧', admin_users_path, class: 'nav-link'
+h1.ttl-01.mt-50.mb-30  コメント登録
 
 = form_with model: [@task, @comment], local: true do |f|
   .form-group
-    = f.label :body, '内容'
     = f.text_field :body, class: 'form-control'
   .text-center
     = f.submit nil, class: 'btn btn-primary'
