@@ -7,6 +7,7 @@ class TasksController < ApplicationController
     @task = current_user.tasks.find(params[:id])
 
     # 口コミ表示
+    @comments = Comment.where(task_id: params[:id])
     @comment = Comment.new
   end
 

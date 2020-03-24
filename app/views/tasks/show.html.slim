@@ -20,17 +20,15 @@ table.table.table-hover
       th= Task.human_attribute_name(:updated_at)
       td= @task.updated_at
 
+- if @comments.empty?
+  h2.p-3.text-center レビューがありません
+- else
+  - @comments.each do |comment|
+    p.card-text #{comment.body}
 
-      h1  コメント登録
+h2.text-center 口コミ投稿する
 
-      .nav.justify-content-end
-        = link_to '一覧', admin_users_path, class: 'nav-link'
-
-      = form_with model: [@task, @comment], local: true do |f|
-        .form-group
-          = f.label :body, '内容'
-          = f.text_field :body, class: 'form-control'
-        = f.submit nil, class: 'btn btn-primary'
+== render 'comments/form', task: @task, comment: @comment
 
 = link_to "編集", edit_task_path, class: 'btn btn-primary mr-3'
 = link_to '削除', @task, method: :delete, data: { confirm: "スレッド「#{@task.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'

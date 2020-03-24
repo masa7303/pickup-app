@@ -1,0 +1,10 @@
+h1  コメント登録
+
+.nav.justify-content-end
+  = link_to '一覧', admin_users_path, class: 'nav-link'
+
+= form_with model: [@task, @comment], local: true do |f|
+  .form-group
+    = f.label :body, '内容'
+    = f.text_field :body, class: 'form-control'
+  = f.submit nil, class: 'btn btn-primary'

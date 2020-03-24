@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_post, except: [:index]
 
   def index
-    @comments = Task.comments
+    @comments = Task.all
   end
 
   def show
@@ -17,8 +17,13 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    redirect_to @task
+    @comment = Comment.new(comment_params.merge(user_id: current_user.id, task_id: params[:task_id]))
+
+    if @comment.save
+      redirect_to @task, notice: "業務スレッド「#{@task.name}」を登録しました"
+    else
+      render :new
+    end
   end
 
   private
