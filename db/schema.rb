@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2020_03_24_005906) do
     t.string "name", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
+    t.string "prefecture", null: false
+    t.string "municipality"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
