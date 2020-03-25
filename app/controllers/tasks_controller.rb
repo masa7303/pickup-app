@@ -1,8 +1,9 @@
 class TasksController < ApplicationController
   before_action :login_required
-  
+
   def index
-    @tasks = Task.all
+    @q = Task.ransack(params[:q])
+    @tasks = @q.result(distinct: true)
   end
 
   def show
@@ -43,9 +44,18 @@ class TasksController < ApplicationController
     redirect_to tasks_url, notice: "業務スレッド「#{task.name}」を削除しました。"
   end
 
+  def search
+    @q = Task.search(search_params)
+    @tasks = @q.result(distinct: true)
+  end
+
   private
 
   def task_params
-    params.require(:task).permit(:name, :description)
+    params.require(:task).permit(:section, :name, :description)
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 end

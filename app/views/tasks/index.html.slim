@@ -2,16 +2,22 @@ h1 業務スレッド一覧
 
 = link_to '新規登録', new_task_path, class: 'btn btn-primary'
 
+h1
+  | 検索
+= render 'search_form'
+
 .mb-3
 table.table.table-hover
   thead.thead-default
     tr
+      th= Task.human_attribute_name(:section)
       th= Task.human_attribute_name(:name)
       th= Task.human_attribute_name(:created_at)
       th
   tbody
     - @tasks.each do |task|
       tr
+        td= task.section
         td= link_to task.name, task
         td= task.created_at.strftime("%Y-%m-%d %H:%M")
         td
