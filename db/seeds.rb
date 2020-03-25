@@ -1,17 +1,10 @@
 User.create!(
-  name: '田中　一郎',
-  email: 'tanaka@gmail.com',
-  password: 'tanaka',
-  password_confirmation: 'tanaka',
+  name: '山田花子',
+  email: 'yamada@test.com',
+  password: 'password',
+  password_confirmation: 'password',
   prefecture: '東京都',
   municipality: '渋谷区',
-  )
-
-User.create!(
-  name: '山本　花子',
-  email: 'yamamoto@gmail.com',
-  password: 'yamamoto',
-  password_confirmation: 'yamamoto',
-  prefecture: '富山県',
-  municipality: '富山市',
-  )
+  created_at: "2020-01-01 00:00:00",
+  updated_at: "2020-01-01 00:00:00"
+)

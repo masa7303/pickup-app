@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  get 'search', to: 'tasks#search'
+
   resources :tasks do
     resources :comments
   end
