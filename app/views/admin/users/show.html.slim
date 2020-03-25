@@ -11,11 +11,20 @@ table.table.table-hover
       th= User.human_attribute_name(:name)
       td= @user.name
     tr
+      th= User.human_attribute_name(:prefecture)
+      td= @user.prefecture
+    tr
+      th= User.human_attribute_name(:municipality)
+      td= @user.municipality
+    tr
       th= User.human_attribute_name(:email)
       td= @user.email
     tr
       th= User.human_attribute_name(:admin)
       td= @user.admin? ? 'あり' : 'なし'
+    tr
+      th= User.human_attribute_name(:image)
+      td= image_tag @user.image if @user.image.attached?
     tr
       th= User.human_attribute_name(:created_at)
       td= @user.created_at
