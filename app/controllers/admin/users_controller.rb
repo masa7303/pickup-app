@@ -46,10 +46,17 @@ class Admin::UsersController < ApplicationController
   def edit
   end
 
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ?
+    BCrypt::Engine::MIN_COST :
+    BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :admin, :password)
   end
 
   # def require_admin
