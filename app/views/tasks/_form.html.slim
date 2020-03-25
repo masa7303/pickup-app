@@ -5,6 +5,9 @@
 
 = form_with model: task, local: true do |f|
   .form-group
+    = f.label :section
+    = f.select :section, [['人事', '人事'], ['行政', '行政'], ['管財', '管財'], ['秘書', '秘書'], ['情報', '情報'], ['企画', '企画'], ['広報', '広報'], ['税務', '税務'], ['住民', '住民'], ['医療', '医療'], ['福祉', '福祉'], ['障害', '障害'], ['児童', '児童'], ['介護', '介護'], ['土木', '土木'], ['用地', '用地'], ['産業', '産業'], ['観光', '観光'], ['教育', '教育'], ['水道', '水道']], {}, class: 'form-control', id: 'task_section'
+  .form-group
     = f.label :name
     = f.text_field :name, class: 'form-control', id: 'task_name'
   .form-group
