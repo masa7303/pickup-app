@@ -52,7 +52,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:section, :name, :description)
+    params.require(:task).permit(:section, :name, :description, :tag_list)
   end
 
   def search_params
