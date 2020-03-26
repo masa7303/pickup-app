@@ -74,3 +74,6 @@ gem 'rails-i18n', '~> 5.1'
 
 # 検索機能
 gem 'ransack'
+
+# タグ追加
+gem 'acts-as-taggable-on', '~> 6.0'
