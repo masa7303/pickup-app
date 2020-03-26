@@ -4,6 +4,10 @@ class TasksController < ApplicationController
   def index
     @q = Task.ransack(params[:q])
     @tasks = @q.result(distinct: true)
+
+    if params[:tag_name]
+      @tasks = Task.tagged_with("#{params[:tag_name]}")
+    end
   end
 
   def show
