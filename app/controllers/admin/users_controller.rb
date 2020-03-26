@@ -15,7 +15,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def create
@@ -34,7 +33,7 @@ class Admin::UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to admin_user_path(@user), notice: "ユーザー「#{@user.name}」を更新しました。"
     else
-      render :new
+      render :edit
     end
   end
 
@@ -56,7 +55,7 @@ class Admin::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :admin, :prefecture, :municipality,:password, :password_confirmation,:image)
+    params.require(:user).permit(:name, :email, :admin, :prefecture, :municipality, :password, :password_confirmation, :image)
   end
 
   def search_params

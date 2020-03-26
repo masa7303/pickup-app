@@ -1,13 +1,10 @@
 class User < ApplicationRecord
-  validates :name, presence: true
-  validates :email, presence: true, uniqueness: true
+  has_many :tasks, foreign_key: :user_id, dependent: :destroy
+  has_many :comments, foreign_key: :user_id, dependent: :destroy
 
-  has_many :tasks
-  has_many :comments
-
-  has_many :relationships
+  has_many :relationships, foreign_key: :user_id, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
-  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :user
 
   has_one_attached :image

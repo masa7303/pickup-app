@@ -1,32 +1,26 @@
-- if user.errors.present?
-  ul#error_explanation
-    - user.errors.full_messages.each do |message|
-      li= message
+= render 'layouts/errors', model: @user
 
-= form_with model: [:admin, user], local: true do |f|
-  .form-group
-    = f.label :name, '名前'
-    = f.text_field :name, class: 'form-control'
-  .form-group
-    = f.label :prefecture, '都道府県'
-    = f.text_field :prefecture, class: 'form-control'
-  .form-group
-    = f.label :municipality, '自治体名（任意）'
-    = f.text_field :municipality, class: 'form-control'
-  .form-group
-    = f.label :email, 'メールアドレス'
-    = f.text_field :email, class: 'form-control'
-  .form-check
-    = f.label :admin, class: 'form-check-label' do
-      = f.check_box :admin, class: 'form-check-imput'
-      | 管理者権限
-  .form-group
-    = f.label :password, 'パスワード'
-    = f.password_field :password, class: 'form-control'
-  .form-group
-    = f.label :password_confirmation, 'パスワード（確認）'
-    = f.password_field :password_confirmation, class: 'form-control'
-  .form-group
-    = f.label :image
-    = f.file_field :image, class: 'form-control'
-  = f.submit '登録する', class: 'btn btn-primary'
+div.width-40.text-center
+  = form_with model: @user, local: true do |f|
+    .form-group
+      = f.label :name, '名前'
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      = f.label :prefecture, '都道府県'
+      = f.text_field :prefecture, class: 'form-control'
+    .form-group
+      = f.label :municipality, '自治体名（任意）'
+      = f.text_field :municipality, class: 'form-control'
+    .form-group
+      = f.label :email, 'メールアドレス'
+      = f.text_field :email, class: 'form-control'
+    .form-group
+      = f.label :password, 'パスワード'
+      = f.password_field :password, class: 'form-control'
+    .form-group
+      = f.label :password_confirmation, 'パスワード（確認）'
+      = f.password_field :password_confirmation, class: 'form-control'
+    .form-group
+      = f.label :image
+      = f.file_field :image, class: 'form-control'
+    = f.submit '登録する', class: 'btn btn-primary'
