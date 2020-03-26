@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :users do
+    resource :relationships, only: %i[create destroy]
+  end
+
   namespace :admin do
     resources :users
   end
