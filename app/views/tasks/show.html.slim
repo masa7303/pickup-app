@@ -1,5 +1,6 @@
 div.task-ttl-box
   h1.task-ttl= @task.name
+  p.task-tag= render 'tasks/tag_list', tag_list: @task.tag_list
   p.task-create= @task.created_at.strftime("%Y-%m-%d %H:%M")
   p.task-desc= @task.description
 
