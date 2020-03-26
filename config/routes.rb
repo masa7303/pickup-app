@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'search', to: 'tasks#search'
 
+  get 'users/search', to: 'admin/users#search'
+
   resources :tasks do
     resources :comments
   end

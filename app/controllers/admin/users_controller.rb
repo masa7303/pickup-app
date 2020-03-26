@@ -2,7 +2,8 @@ class Admin::UsersController < ApplicationController
   # before_action :require_admin
 
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
   end
 
   def show
@@ -46,10 +47,20 @@ class Admin::UsersController < ApplicationController
   def edit
   end
 
+  def search
+    @q = User.search(search_params)
+    @users = @q.result(distinct: true)
+    render :index
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :admin, :prefecture, :municipality,:password, :password_confirmation,:image)
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 
   # def require_admin
