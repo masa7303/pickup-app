@@ -4,30 +4,19 @@ class User < ApplicationRecord
 
   has_many :tasks
   has_many :comments
-  has_many :active_relationships, class_name:  "Relationship",
-                                  foreign_key: "follower_id",
-                                  dependent:   :destroy
-  has_many :passive_relationships, class_name:  "Relationship",
-                                   foreign_key: "followed_id",
-                                   dependent:   :destroy
-  has_many :following, through: :active_relationships, source: :followed
-  has_many :followers, through: :passive_relationships, source: :follower
+
+  # 外部キーをfollowing_idとしているので、フォローする側から見たRelasionships
+  has_many :active_relationships, class_name: 'Relationship', foreign_key: :following_id
+  has_many :followings, through: :active_relationships, source: :follower
+
+  # 外部キーをfollower_idとしているので、フォローされる側から見たRelasionships
+  has_many :passive_relationships, class_name: 'Relationship', foreign_key: :follower_id
+  has_many :followers, through: :passive_relationships, source: :following
 
   has_one_attached :image
 
-  # ユーザーをフォローする
-  def follow(other_user)
-    active_relationships.create(followed_id: other_user.id)
-  end
-
-  # ユーザーをアンフォローする
-  def unfollow(other_user)
-    active_relationships.find_by(followed_id: other_user.id).destroy
-  end
-
-  # 現在のユーザーがフォローしてたらtrueを返す
-  def following?(other_user)
-    following.include?(other_user)
+  def followed_by?(user)
+    passive_relationships.where(following_id: user.id).present?
   end
 
 end
