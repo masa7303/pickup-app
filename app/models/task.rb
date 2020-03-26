@@ -1,4 +1,6 @@
 class Task < ApplicationRecord
+  acts_as_taggable
+  
   validates :name, presence: true
   validates :description, presence: true
 
