@@ -25,7 +25,8 @@ div.text-center
     = form_for(current_user.relationships.build) do |f|
       = f.hidden_field :follow_id, value: @user.id
       = f.submit 'フォロー', class: 'follows'
-.wrap
+
+.width-30.mt-5
   ul#tab-menu.clearfix
     li
       a.active href="#tab_followers"
