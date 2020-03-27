@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(version: 2020_03_26_090543) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "taggings_count", default: 0
-    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

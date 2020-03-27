@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :tasks, foreign_key: :user_id, dependent: :destroy
-  has_many :comments, foreign_key: :user_id, dependent: :destroy
+  has_many :tasks
+  has_many :comments
 
   has_many :relationships, foreign_key: :user_id, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow

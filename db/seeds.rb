@@ -52,3 +52,6 @@ User.create!(
   created_at: "2020-01-01 00:00:00",
   updated_at: "2020-01-01 00:00:00"
 )
+
+user = User.find(1)
+user.image.attach(io: File.open('app/assets/images/icon-01.jpg'), filename: 'icon-01.jpg')
