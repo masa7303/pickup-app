@@ -9,8 +9,8 @@ class Admin::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    @user_followings = @user.followings.page(params[:page])
-    @user_followers = @user.followers.page(params[:page])
+    @user_followings = @user.followings.page(params[:page]).with_attached_image
+    @user_followers = @user.followers.page(params[:page]).with_attached_image
   end
 
   def new
