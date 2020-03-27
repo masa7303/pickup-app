@@ -80,3 +80,7 @@ gem 'acts-as-taggable-on', '~> 6.0'
 
 # ページネーション
 gem 'kaminari'
+
+# jquery
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
