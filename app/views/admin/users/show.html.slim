@@ -41,8 +41,23 @@ div.text-center
         div
           strong= @user.followings.count
 
+#tab-contents.clearfix
+  #tab_followers.tab
+    = paginate @user_followers
+    .flex.user_show_container
+      = render 'admin/users/users', users: @user_followers
+    = paginate @user_followers
+  #tab_followings.tab
+    = paginate @user_followings
+    .flex.user_show_container
+      = render 'admin/users/users', users: @user_followings
+    = paginate @user_followings
+
 javascript:
+  $('#tab-contents .tab[id != "tab_followers"]').hide();
+
   $('#tab-menu a').on('click', function() {
+    $("#tab-contents .tab").hide();
     $("#tab-menu .active").removeClass("active");
     $(this).addClass("active");
     $($(this).attr("href")).show();

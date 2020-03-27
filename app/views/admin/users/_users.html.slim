@@ -1,0 +1,16 @@
+- users.each do |user|
+  div.card.container.shadow-sm.movie_show_info
+    div.user_head.mt-4.mb-4
+      = link_to admin_user_path(user), class:"row"
+        .col-md-9.d-flex.align-items-center.h3=  user.name
+    .row
+      .col-md.p-0
+        div.text-center
+          strong フォロワー
+        div.text-center
+          strong= "#{user.followers.count}"
+      .col-md.p-0
+        div.text-center
+          strong フォロー
+        div.text-center
+          strong= "#{user.followings.count}"
