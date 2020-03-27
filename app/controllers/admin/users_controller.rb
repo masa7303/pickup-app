@@ -8,6 +8,9 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    @user_followings = @user.followings.page(params[:page])
+    @user_followers = @user.followers.page(params[:page])
   end
 
   def new
