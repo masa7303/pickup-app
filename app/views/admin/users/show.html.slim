@@ -44,7 +44,7 @@ div.text-center.mt-5
 
 #tab-contents.clearfix
   #tab_followers.tab
-    = paginate @user_followers
+    .pagination.pagination-centered= paginate @user_followers
     .flex.user_show_container
       = render 'admin/users/users', users: @user_followers
     = paginate @user_followers
