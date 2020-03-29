@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'shops/index'
-  get 'shops/show'
-  get 'shops/new'
-  get 'shops/edit'
   root to: 'tasks#index'
 
   # ログインまわり
@@ -11,6 +7,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get 'search', to: 'tasks#search'
+
+  get 'shops/search', to: 'shops#search'
 
   get 'users/search', to: 'admin/users#search'
 

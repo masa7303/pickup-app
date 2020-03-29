@@ -2,7 +2,8 @@ class ShopsController < ApplicationController
   before_action :login_required, except: :new
 
   def index
-    @shops = Shop.with_attached_image.page(params[:page]).per(6)
+    @q = Shop.ransack(params[:q])
+    @shops = @q.result(distinct: true).with_attached_image.page(params[:page]).per(6)
   end
 
   def show
@@ -25,10 +26,19 @@ class ShopsController < ApplicationController
     end
   end
 
+  def search
+    @q = Shop.search(search_params)
+    @shops = @q.result(distinct: true).with_attached_image.page(params[:page])
+  end
+
   private
 
   def shop_params
     params.require(:shop).permit(:name, :prefecture, :address, :phone, :image)
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 
 end

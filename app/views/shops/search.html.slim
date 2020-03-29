@@ -16,7 +16,7 @@
     .card.bg-white.border-none.shadow-sm.mb-3
       .card-header.font-weight-bold
         p 検索
-        = render 'search_form', q: @q
+        = render 'search_form'
 
     .card.bg-white.border-none.shadow-sm.mb-3
       .card-header.font-weight-bold
@@ -30,4 +30,3 @@
                   h2.mt-2= shop.name
                   = shop.prefecture
                   = shop.address
-        = paginate @shops
