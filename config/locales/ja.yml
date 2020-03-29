@@ -22,6 +22,11 @@ ja:
         name: タイトル
         description: 内容
         created_at: 登録日時
+      shop:
+        name: 店名
+        prefecture: 都道府県
+        address: 住所
+        phone: 電話番号
   date:
     abbr_day_names:
     - 日
