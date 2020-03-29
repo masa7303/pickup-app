@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'users/search', to: 'admin/users#search'
 
   resources :tasks do
-    resources :comments
+    resources :comments, only: %i[index create edit], shallow: true
   end
 
   resources :relationships, only: [:create, :destroy]
