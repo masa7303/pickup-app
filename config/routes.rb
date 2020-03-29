@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'shops/index'
+  get 'shops/show'
+  get 'shops/new'
+  get 'shops/edit'
   root to: 'tasks#index'
 
   # ログインまわり
