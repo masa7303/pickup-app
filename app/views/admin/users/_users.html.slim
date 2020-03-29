@@ -1,0 +1,18 @@
+div.row
+  - users.each do |user|
+    div.card.container.shadow-sm.movie_show_info.col-md-4
+      div.user_head.mt-4.mb-4.text-center
+        = image_tag user.image, size: "100x100",class: "img-circle pull-left profile-thumb rounded-circle mb-2"if user.image.attached?
+        = link_to admin_user_path(user), class:"row"
+          h3.mr-auto.ml-auto=  user.name
+      .row
+        .col-md.p-0
+          div.text-center
+            strong フォロワー
+          div.text-center
+            strong= "#{user.followers.count}"
+        .col-md.p-0
+          div.text-center
+            strong フォロー
+          div.text-center
+            strong= "#{user.followings.count}"

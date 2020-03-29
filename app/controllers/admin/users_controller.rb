@@ -3,11 +3,14 @@ class Admin::UsersController < ApplicationController
 
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true)
+    @users = @q.result(distinct: true).page(params[:page]).reverse_order
   end
 
   def show
     @user = User.find(params[:id])
+
+    @user_followings = @user.followings.with_attached_image.page(params[:page]).per(6)
+    @user_followers = @user.followers.with_attached_image.page(params[:page]).per(6)
   end
 
   def new

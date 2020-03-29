@@ -77,3 +77,11 @@ gem 'ransack'
 
 # タグ追加
 gem 'acts-as-taggable-on', '~> 6.0'
+
+# ページネーション
+gem 'kaminari'
+gem 'kaminari-bootstrap'
+
+# jquery
+gem 'jquery-rails'
+gem 'jquery-turbolinks'

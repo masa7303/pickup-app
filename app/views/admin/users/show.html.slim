@@ -1,46 +1,66 @@
-h1 ユーザーの詳細
+h1.page-ttl 「#{@user.name}」 さんのページ
 
-.nav.justify-content-end
-  = link_to '一覧', admin_users_path, class: 'nav-link'
-table.table.table-hover
-  tbody
-    tr
-      th= User.human_attribute_name(:id)
-      td= @user.id
-    tr
-      th= User.human_attribute_name(:name)
-      td= @user.name
-    tr
-      th= User.human_attribute_name(:prefecture)
-      td= @user.prefecture
-    tr
-      th= User.human_attribute_name(:municipality)
-      td= @user.municipality
-    tr
-      th= User.human_attribute_name(:email)
-      td= @user.email
-    tr
-      th= User.human_attribute_name(:admin)
-      td= @user.admin? ? 'あり' : 'なし'
-    tr
-      th= User.human_attribute_name(:image)
-      td= image_tag @user.image if @user.image.attached?
-    tr
-      th= User.human_attribute_name(:created_at)
-      td= @user.created_at
-    tr
-      th= User.human_attribute_name(:updated_at)
-      td= @user.updated_at
+div.text-center
+  = image_tag @user.image, size: "100x100",class: "img-circle pull-left profile-thumb rounded-circle mb-2"if @user.image.attached?
+  p.user-name.mb-3= @user.name
 
-= link_to '編集', edit_admin_user_path, class: 'btn btn-primary mr-3'
-= link_to '削除', [:admin, @user], method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
+  table.table.table-hover.width-30.mb-3
+    tbody
+      tr
+        th= User.human_attribute_name(:prefecture)
+        td= @user.prefecture
+      tr
+        th= User.human_attribute_name(:municipality)
+        td= @user.municipality
 
-- unless current_user == @user
-  - if current_user.following?(@user)
-    = form_for(current_user.relationships.find_by(follow_id: @user.id), html: { method: :delete }) do |f|
-      = f.hidden_field :follow_id, value: @user.id
-      = f.submit 'フォロー中', class: 'follow-now'
-  - else
-    = form_for(current_user.relationships.build) do |f|
-      = f.hidden_field :follow_id, value: @user.id
-      = f.submit 'フォロー', class: 'follows'
+  = link_to '編集', edit_admin_user_path, class: 'btn btn-primary mr-3'
+  = link_to '削除', [:admin, @user], method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
+
+div.text-center.mt-5
+  - unless current_user == @user
+    - if current_user.following?(@user)
+      = form_for(current_user.relationships.find_by(follow_id: @user.id), html: { method: :delete }) do |f|
+        = f.hidden_field :follow_id, value: @user.id
+        = f.submit 'フォロー解除', class: 'follow-now btn btn-warning text-white'
+    - else
+      = form_for(current_user.relationships.build) do |f|
+        = f.hidden_field :follow_id, value: @user.id
+        = f.submit 'フォロー', class: 'follows btn btn-warning text-white'
+
+.width-30.mt-5
+  ul#tab-menu.clearfix
+    li
+      a.active href="#tab_followers"
+        div
+          strong.tab-menu_label フォロワー
+        div
+          strong= @user.followers.count
+    li
+      a href="#tab_followings"
+        div
+          strong.tab-menu_label フォロー
+        div
+          strong= @user.followings.count
+
+#tab-contents.clearfix
+  #tab_followers.tab
+    .flex.user_show_container
+      = render 'admin/users/users', users: @user_followers
+    = paginate @user_followers
+  #tab_followings.tab
+    = paginate @user_followings
+    .flex.user_show_container
+      = render 'admin/users/users', users: @user_followings
+    div.text-center
+      = paginate @user_followings
+
+javascript:
+  $('#tab-contents .tab[id != "tab_followers"]').hide();
+
+  $('#tab-menu a').on('click', function() {
+    $("#tab-contents .tab").hide();
+    $("#tab-menu .active").removeClass("active");
+    $(this).addClass("active");
+    $($(this).attr("href")).show();
+    return false;
+  });

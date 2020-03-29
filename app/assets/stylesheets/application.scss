@@ -27,6 +27,15 @@ html {
   margin-bottom: 30px;
 }
 
+.width-30 {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.text-white {
+  color: #fff;
+}
+
 .page-ttl {
   position: relative;
   color: #158b2b;
@@ -49,4 +58,9 @@ html {
   border-right-color: transparent;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+}
+
+.pagination {
+  margin-top: 20px;
+  justify-content: center;
 }
