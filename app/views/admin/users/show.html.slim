@@ -44,7 +44,6 @@ div.text-center.mt-5
 
 #tab-contents.clearfix
   #tab_followers.tab
-    = paginate @user_followers
     .flex.user_show_container
       = render 'admin/users/users', users: @user_followers
     = paginate @user_followers
@@ -52,7 +51,8 @@ div.text-center.mt-5
     = paginate @user_followings
     .flex.user_show_container
       = render 'admin/users/users', users: @user_followings
-    = paginate @user_followings
+    div.text-center
+      = paginate @user_followings
 
 javascript:
   $('#tab-contents .tab[id != "tab_followers"]').hide();
