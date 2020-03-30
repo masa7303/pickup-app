@@ -8,6 +8,9 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+
+    @reviews = Review.where(shop_id: params[:id])
+    @review = Review.new
   end
 
   def new

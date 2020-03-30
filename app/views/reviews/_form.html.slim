@@ -1,0 +1,19 @@
+.p-3
+  .container
+    = form_with model: [shop, review], local: true do |f|
+      == render 'shared/error_messages', object: f.object
+      .form-group
+        = f.label :title
+        span.badge.badge-danger.m-2 必須
+        = f.text_field :title, class: 'form-control', placeholder: '例 おいしいのでおすすめ！'
+      .form-group
+        = f.label :body
+        = f.text_area :body, class: 'form-control', placeholder: '口コミ内容がなくても、タイトルのみで投稿できます。投稿後に編集も可能です！また、星はスライドで入力できます！', rows: 10, height: 150
+      .form-group
+        = f.label :review_image
+        = f.file_field :review_image, class: 'form-control'
+      .actions
+        - if review.new_record?
+          = f.submit '投稿する', class: 'btn btn-success btn-block'
+        - else
+          = f.submit '更新する', class: 'btn btn-success btn-block'

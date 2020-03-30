@@ -1,10 +1,18 @@
 class ReviewsController < ApplicationController
+  before_action :set_review, only: %i[edit update destroy]
+  before_action :login_required, except: [:index]
+  before_action :set_post
+
   def index
     @q = Review.ransack(params[:q])
-    @reviews = @q.result(distinct: true).with_attached_image
+    @reviews = @q.result(distinct: true).with_attached_review_image
   end
 
   def edit
+  end
+
+  def show
+    @review = Review.find(params[:id])
   end
 
   def update
@@ -17,11 +25,10 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = current_user.reviews.build(review_params)
+    @review = Review.new(review_params.merge(user_id: current_user.id, shop_id: params[:shop_id]))
     if @review.save
       redirect_to shop_path(params[:shop_id]), success: '口コミ投稿が完了しました'
     else
-      @shop = Shop.find(params[:shop_id])
       redirect_to shop_path(@shop), danger: '口コミ投稿が失敗しました'
     end
   end
@@ -39,7 +46,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:title, :body, :review_image, :rate).merge(shop_id: params[:shop_id])
+    params.require(:review).permit(:title, :body, :review_image)
   end
 
   def review_update_params
@@ -48,5 +55,9 @@ class ReviewsController < ApplicationController
 
   def search_params
     params[:q]&.permit(:title, :body)
+  end
+
+  def set_post
+    @shop = Shop.find(params[:shop_id])
   end
 end

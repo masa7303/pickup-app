@@ -1,2 +1,9 @@
-h1 Reviews#index
-p Find me in app/views/reviews/index.html.slim
+- content_for(:title, '新着口コミ一覧')
+.container#review_index
+  h2.text-center 新着口コミ一覧
+  .row
+    .col-12
+      - if @reviews.empty?
+        h2.text-center レビューがありません
+      - else
+        == render @reviews
