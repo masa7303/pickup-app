@@ -27,4 +27,8 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
   end
 
+  def liked?(shop)
+    likes.exists?(shop_id: shop.id)
+  end
+
 end

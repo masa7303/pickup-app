@@ -2,5 +2,5 @@ li.list-inline-item
   = link_to like_path(current_user.likes.find_by(shop_id: shop.id)), method: :delete, remote: true
     = button_tag(class: 'btn like rounded-pill')
       | いいね！を外す
-      i.far.fa-thumbs-up.thumb
+      i.far.fa-thumbs-down.thumb
       = shop.likes.count

@@ -20,7 +20,8 @@
           th.bg-light.text-center.d-block 電話番号
           td.text-center.d-block= @shop.phone
 
-      == render 'likes/likes_basic', shop: @shop
+      .text-center.mt-5
+        == render 'likes/likes_basic', shop: @shop
 
     .card-header.font-weight-bold
       このお店のレビュー
