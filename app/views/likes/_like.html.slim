@@ -1,0 +1,6 @@
+li.list-inline-item
+  = link_to likes_path(shop_id: shop.id), method: :post, remote: true
+    = button_tag(class: 'btn unlike rounded-pill')
+      | いいね！
+      i.far.fa-thumbs-up.thumb
+      = shop.likes.count

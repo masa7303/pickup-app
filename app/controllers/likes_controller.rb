@@ -11,6 +11,6 @@ class LikesController < ApplicationController
   end
 
   def ranking
-    @food_ranks = Kaminari.paginate_array(Food.all_rankings).page(params[:page])
+    @shop_ranks = Kaminari.paginate_array(Shop.all_rankings).page(params[:page])
   end
 end

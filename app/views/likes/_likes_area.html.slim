@@ -1,0 +1,7 @@
+- if current_user
+  - if current_user.liked?(shop)
+    == render 'likes/unlike', shop: shop
+  - else
+    == render 'likes/like', shop: shop
+- else
+  == render 'likes/local_like', shop: shop
