@@ -1,8 +1,9 @@
 class User < ApplicationRecord
-  has_many :tasks
-  has_many :comments
+  has_many :tasks, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :shops
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   has_many :relationships, foreign_key: :user_id, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
