@@ -1,0 +1,32 @@
+.header_box
+  = image_tag('shop-bgimg.png', class: "header_bg_img")
+  .header_ttl.text-center
+    h1.header_ttl_ja 美味しいお店
+    p.header_ttl_en SHOP
+
+.row
+  .col-md-8
+    .card.bg-white.border-none.shadow-sm.mb-3
+      .card-header.font-weight-bold
+        p 店舗情報の追加
+        .card-body
+          = link_to new_shop_path, class: "btn-block btn btn-success" do
+            i.fas.fa-edit 追加する
+
+    .card.bg-white.border-none.shadow-sm.mb-3
+      .card-header.font-weight-bold
+        p 検索
+        = render 'search_form'
+
+    .card.bg-white.border-none.shadow-sm.mb-3
+      .card-header.font-weight-bold
+        p 店舗一覧
+        .mb-3.row
+          - @shops.each do |shop|
+            .col-md-4.mb-3
+              .card.text-center.p-3
+                = link_to shop_path do
+                  .shop-card-img= image_tag shop.image, size: "200x200"
+                  h2.mt-2= shop.name
+                  = shop.prefecture
+                  = shop.address

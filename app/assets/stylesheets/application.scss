@@ -10,10 +10,14 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 @import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import 'comments';
+@import 'sessions';
+@import 'shops';
+@import 'tasks';
 
 html {
   font-size: 62.5%;
@@ -21,6 +25,10 @@ html {
 
 .mt-50 {
   margin-top: 50px;
+}
+
+.mt-30 {
+  margin-top: 30px;
 }
 
 .mb-30 {
@@ -63,4 +71,46 @@ html {
 .pagination {
   margin-top: 20px;
   justify-content: center;
+}
+
+// ヘッダー
+.header_bg_img {
+  width: 100%;
+  height: auto;
+}
+
+.header_box {
+  position: relative;
+  margin-bottom: 50px;
+  margin-left: calc(((100vw - 100%) / 2) * -1);
+  margin-right: calc(((100vw - 100%) / 2) * -1);
+  width: 100vw;
+}
+
+.header_ttl {
+  position: absolute;
+  color: #fff;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.header_ttl_ja {
+  letter-spacing: 0.3rem;
+}
+@media screen and (max-width: 768px) {
+  .header_ttl_ja {
+    font-size: 1.4rem;
+  }
+}
+
+.header_ttl_en {
+  letter-spacing: 0.1rem;
+  margin-bottom: 0;
+}
+@media screen and (max-width: 768px) {
+  .header_ttl_en {
+    font-size: 0.2rem;
+  }
 }

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'search', to: 'tasks#search'
 
+  get 'shops/search', to: 'shops#search'
+
   get 'users/search', to: 'admin/users#search'
 
   resources :tasks do
@@ -15,6 +17,8 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: [:create, :destroy]
+
+  resources :shops
 
   namespace :admin do
     resources :users

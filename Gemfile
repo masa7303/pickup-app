@@ -85,3 +85,9 @@ gem 'kaminari-bootstrap'
 # jquery
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+
+# 日本地図表示
+gem 'jcanvas-rails', '~> 0.1.0'
+
+# font-awesome
+gem 'font-awesome-sass', '~> 5.12.0'

@@ -1,0 +1,18 @@
+.header_box
+  = image_tag('shop-bgimg.png', class: "header_bg_img")
+  .header_ttl.text-center
+    h1.header_ttl_ja 店舗詳細
+    p.header_ttl_en SHOP INFO
+
+h1.text-center.mb-30= @shop.name
+
+.text-center
+  =image_tag @shop.image, size: "500x500"
+
+table.table.table-bordered.mt-30.shop-table
+  tr
+    th.bg-light.text-center.d-block 所在地
+    td.text-center.d-block= @shop.address
+  tr
+    th.bg-light.text-center.d-block 電話番号
+    td.text-center.d-block= @shop.phone

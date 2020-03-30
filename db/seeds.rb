@@ -1,4 +1,5 @@
 User.create!(
+  id: 1,
   name: '山田花子',
   email: 'yamada@test.com',
   password: 'password',
@@ -10,6 +11,7 @@ User.create!(
 )
 
 User.create!(
+  id: 2,
   name: '田中一郎',
   email: 'tanaka@test.com',
   password: 'password',
@@ -21,6 +23,7 @@ User.create!(
 )
 
 User.create!(
+  id: 3,
   name: '花田まり',
   email: 'hanada@test.com',
   password: 'password',
@@ -32,6 +35,7 @@ User.create!(
 )
 
 User.create!(
+  id: 4,
   name: '太田雄二',
   email: 'oota@test.com',
   password: 'password',
@@ -43,6 +47,7 @@ User.create!(
 )
 
 User.create!(
+  id: 5,
   name: '石原恵梨',
   email: 'ishihara@test.com',
   password: 'password',
@@ -54,6 +59,7 @@ User.create!(
 )
 
 User.create!(
+  id: 6,
   name: '古川大志',
   email: 'hurukawa@test.com',
   password: 'password',
@@ -65,6 +71,7 @@ User.create!(
 )
 
 User.create!(
+  id: 7,
   name: '森永歩',
   email: 'morinaga@test.com',
   password: 'password',
@@ -76,6 +83,7 @@ User.create!(
 )
 
 User.create!(
+  id: 8,
   name: '安部夏樹',
   email: 'abe@test.com',
   password: 'password',
@@ -87,6 +95,7 @@ User.create!(
 )
 
 User.create!(
+  id: 9,
   name: '後藤拓実',
   email: 'gotou@test.com',
   password: 'password',
@@ -98,6 +107,7 @@ User.create!(
 )
 
 User.create!(
+  id: 10,
   name: '丹治郁人',
   email: 'tanji@test.com',
   password: 'password',
@@ -235,3 +245,46 @@ Comment.create!([
   {id: 11, user_id: 7, task_id: 5, body: '振込日を月単位から隔週に設定することで、少しでもはやく還付できるようにしています。'},
   {id: 12, user_id: 8, task_id: 5, body: '特に対策はしていませんね。'},
 ])
+
+Shop.create!([
+  {id: 1, user_id: 1, name: '麺屋　ひまわり', prefecture: 13, address: '中野区１丁目', phone: '000-000-0001'},
+  {id: 2, user_id: 2, name: '居酒屋だるま', prefecture: 16, address: '富山市１丁目', phone: '000-000-0002'},
+  {id: 3, user_id: 3, name: '海鮮祭り', prefecture: 12, address: 'いすみ市１丁目', phone: '000-000-0003'},
+  {id: 4, user_id: 4, name: '沖縄の風', prefecture: 47, address: '那覇市１丁目', phone: '000-000-0004'},
+  {id: 5, user_id: 5, name: 'BLUE OCEAN', prefecture: 2, address: '八戸市１丁目', phone: '000-000-0005'},
+  {id: 6, user_id: 6, name: 'ちゃんこ北の大地', prefecture: 1, address: '札幌市１丁目', phone: '000-000-0006'},
+  {id: 7, user_id: 7, name: '金沢イタリー', prefecture: 17, address: '金沢市１丁目', phone: '000-000-0007'},
+  {id: 8, user_id: 8, name: '豚カツ　木村', prefecture: 4, address: '仙台市１丁目', phone: '000-000-0008'},
+  {id: 9, user_id: 9, name: 'noodle store', prefecture: 16, address: '魚津市１丁目', phone: '000-000-0009'},
+  {id: 10, user_id: 10, name: '番屋の寿司', prefecture: 34, address: '広島市１丁目', phone: '000-000-0010'},
+])
+
+shop = Shop.find(1)
+shop.image.attach(io: File.open('app/assets/images/ramen.jpg'), filename: 'ramen.jpg')
+
+shop = Shop.find(2)
+shop.image.attach(io: File.open('app/assets/images/beer.jpg'), filename: 'beer.jpg')
+
+shop = Shop.find(3)
+shop.image.attach(io: File.open('app/assets/images/sashimi.jpg'), filename: 'sashimi.jpg')
+
+shop = Shop.find(4)
+shop.image.attach(io: File.open('app/assets/images/meat.jpg'), filename: 'meat.jpg')
+
+shop = Shop.find(5)
+shop.image.attach(io: File.open('app/assets/images/yakitori.jpg'), filename: 'yakitori.jpg')
+
+shop = Shop.find(6)
+shop.image.attach(io: File.open('app/assets/images/nabe.jpeg'), filename: 'nabe.jpeg')
+
+shop = Shop.find(7)
+shop.image.attach(io: File.open('app/assets/images/pasta.jpg'), filename: 'pasta.jpg')
+
+shop = Shop.find(8)
+shop.image.attach(io: File.open('app/assets/images/tonkatsu.jpg'), filename: 'tonkatsu.jpg')
+
+shop = Shop.find(9)
+shop.image.attach(io: File.open('app/assets/images/ramen.jpg'), filename: 'ramen.jpg')
+
+shop = Shop.find(10)
+shop.image.attach(io: File.open('app/assets/images/sushi.jpg'), filename: 'sushi.jpg')
