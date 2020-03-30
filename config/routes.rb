@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  resources :shops
+  resources :shops, only: %i[index show] do
+    resources :reviews, only: %i[index create edit update destroy], shallow: true
+  end
 
   namespace :admin do
     resources :users
