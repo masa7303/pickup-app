@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[edit update destroy]
   before_action :login_required, except: [:index]
-  before_action :set_post
 
   def index
     @q = Review.ransack(params[:q])
@@ -25,6 +24,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @shop = Shop.find(params[:shop_id])
     @review = Review.new(review_params.merge(user_id: current_user.id, shop_id: params[:shop_id]))
     if @review.save
       redirect_to shop_path(params[:shop_id]), success: '口コミ投稿が完了しました'
@@ -55,9 +55,5 @@ class ReviewsController < ApplicationController
 
   def search_params
     params[:q]&.permit(:title, :body)
-  end
-
-  def set_post
-    @shop = Shop.find(params[:shop_id])
   end
 end
