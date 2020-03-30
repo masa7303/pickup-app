@@ -12,7 +12,10 @@ html
     nav.navbar.navbar-dark.bg-dark
       ul.nav_link
         - if current_user
-          li.navbar-brand= link_to '業務スレッド一覧', tasks_path, class: 'nav-link'
+          li.navbar-brand
+            = link_to shops_path, class: 'nav-link' do
+              i.fas.fa-utensils オススメのお店
+          li.navbar-brand= link_to '業務スレッド', tasks_path, class: 'nav-link'
           li.navbar-brand= link_to 'ユーザー一覧', admin_users_path, class: 'nav-link'
           li.navbar-brand= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
         - else
