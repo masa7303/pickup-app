@@ -1,0 +1,8 @@
+.row.border review_id="#{review.id}"
+  .col-12.col-md-2.review_user_info
+    h6.review_user_name = review.user.name
+  .col-md-6.md-3
+    .review_content
+      p.m-1 = I18n.l(review.updated_at, format: :long)
+      span.m-1 id="star-rate-#{review.id}"
+      h6.m-1 = simple_format(h(review.body))

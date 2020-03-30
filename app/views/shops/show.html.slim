@@ -4,15 +4,47 @@
     h1.header_ttl_ja 店舗詳細
     p.header_ttl_en SHOP INFO
 
-h1.text-center.mb-30= @shop.name
+.row
+  .col-md-8
+    .card.bg-white.border-none.shadow-sm.mb-3.p-4
+      h1.text-center.mb-30= @shop.name
 
-.text-center
-  =image_tag @shop.image, size: "500x500"
+      .text-center
+        =image_tag @shop.image, size: "500x500"
 
-table.table.table-bordered.mt-30.shop-table
-  tr
-    th.bg-light.text-center.d-block 所在地
-    td.text-center.d-block= @shop.address
-  tr
-    th.bg-light.text-center.d-block 電話番号
-    td.text-center.d-block= @shop.phone
+      table.table.table-bordered.mt-30.shop-table
+        tr
+          th.bg-light.text-center.d-block 所在地
+          td.text-center.d-block= @shop.address
+        tr
+          th.bg-light.text-center.d-block 電話番号
+          td.text-center.d-block= @shop.phone
+
+    .card-header.font-weight-bold
+      このお店のレビュー
+    .card.bg-white.border-none.shadow-sm.mb-3
+      - if @reviews.empty?
+        h2.p-3.text-center レビューがありません
+      - else
+        .card-body.p-4
+          - @reviews.each do |review|
+            .row
+              .col-md-2.parent
+                .child
+                  = image_tag review.user.image, size: "70x70"
+                  p.text-center= review.user.name
+              .col-md-10
+                = link_to review_path(review) do
+                  .balloon1-left.d-flex.row
+                    .col-md-10
+                      .review-content
+                        h2.fs-22.font-weight-bold
+                          = review.title
+                        p.fs-12.mb-2= truncate(review.body, length: 40)
+                        p.mb-0= review.created_at.strftime("%Y年%m月%d日")
+                    .col-md-2
+                      .review-image
+                        = image_tag review.review_image, size: "70x70"
+
+    h2.text-center 口コミ投稿する
+    == render 'reviews/form', shop: @shop, review: @review

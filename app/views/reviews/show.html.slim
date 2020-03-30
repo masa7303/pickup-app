@@ -1,0 +1,28 @@
+.row.pt-3.pb-5
+  .col-md-8.review-container.mb-3
+    .card.bg-white.border-none.shadow-sm
+      .card-body.p-4
+        .mb-3
+          h1.m-0.font-weight-bold.text-center= link_to @review.shop.name, shop_path(@review.shop)
+
+        = image_tag @review.review_image, class: "review-show-img"
+
+        h2.text-center.mt-3.mb-2.bg-secondary.pt-3.pb-3.text-white= @review.title
+        p.fs-12.mb-2= @review.body
+        p.mb-0.text-right= @review.created_at.strftime("%Y年%m月%d日")
+
+        - if logged_in?
+          - if @review.user.id == current_user.id
+            .d-sm-block.d-none.col-md-4.text-center.mr-auto.ml-auto.mb-5
+              = link_to edit_review_path(@review), class: "btn btn-primary btn-sm mr-1" do
+                i.fas.fa-edit 編集
+              = link_to review_path(@review), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger btn-sm ml-1" do
+                i.fas.fa-trash 削除
+
+        .card.bg-white.border-none.shadow-sm
+          .card-body.p-4.text-center
+            p この口コミを投稿した人
+            = image_tag @review.user.image, size: "50x50"
+            .d-inline-block
+              = link_to admin_user_path(@review.user) do
+                h2.font-weight-bold.ml-2= @review.user.name
