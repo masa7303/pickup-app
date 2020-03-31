@@ -9,3 +9,14 @@
   width: 500px;
   margin: 0 auto;
 }
+
+.button-img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+.button-img:hover {
+  opacity: 0.7;
+  transition: 1s;
+}

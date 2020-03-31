@@ -14,6 +14,7 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import 'admin/users';
 @import 'comments';
 @import 'sessions';
 @import 'shops';
@@ -115,4 +116,9 @@ html {
   .header_ttl_en {
     font-size: 0.2rem;
   }
+}
+
+.ad-img {
+  width: 100%;
+  height: auto;
 }
