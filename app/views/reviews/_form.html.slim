@@ -12,8 +12,26 @@
       .form-group
         = f.label :review_image
         = f.file_field :review_image, class: 'form-control'
+      #star.form-group
+        = f.label :rate
+        span.badge.badge-danger.m-2 必須
+        br
+        = f.hidden_field :rate, id: :review_star
       .actions
         - if review.new_record?
           = f.submit '投稿する', class: 'btn btn-success btn-block'
         - else
           = f.submit '更新する', class: 'btn btn-success btn-block'
+
+/ 星評価
+javascript:
+  $('#star-rate-#{review.id}').raty({
+    size: 36,
+    starOff: "#{asset_path('star-off.png')}",
+    starOn: "#{asset_path('star-on.png')}",
+    starHalf: "#{asset_path('star-half.png')}",
+    half: true,
+    readOnly: true,
+    score: "#{review.rate}",
+  });
+/ 星評価終わり

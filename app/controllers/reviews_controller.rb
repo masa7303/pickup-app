@@ -46,14 +46,14 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:title, :body, :review_image)
+    params.require(:review).permit(:title, :body, :review_image, :rate)
   end
 
   def review_update_params
-    params.require(:review).permit(:title, :body, :review_image)
+    params.require(:review).permit(:title, :body, :review_image, :rate)
   end
 
   def search_params
-    params[:q]&.permit(:title, :body)
+    params[:q]&.permit(:title, :body, :rate)
   end
 end
