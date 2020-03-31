@@ -27,6 +27,12 @@ ja:
         prefecture: 都道府県
         address: 住所
         phone: 電話番号
+        image: 画像
+      review:
+        title: タイトル
+        body: 内容
+        review_image: 画像
+        rate: 評価
   date:
     abbr_day_names:
     - 日
