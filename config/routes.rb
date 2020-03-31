@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'mypages/show'
   root to: 'tasks#index'
 
   # ログインまわり
@@ -17,11 +16,12 @@ Rails.application.routes.draw do
     resources :comments, only: %i[index create edit], shallow: true
   end
 
-  resource :mypages, only: %i[show edit update] do
-    collection do
-      get :review
-      get :like
-    end
+  namespace :mypage do
+    get :reviews
+    get :shops
+    get :profile
+    get :email
+    get :password
   end
 
   resources :relationships, only: [:create, :destroy]
