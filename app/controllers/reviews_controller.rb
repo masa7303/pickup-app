@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
 
   def create
     @shop = Shop.find(params[:shop_id])
-    @review = Review.new(review_params.merge(user_id: current_user.id, shop_id: params[:shop_id]))
+    @review = Review.new(review_params)
     if @review.save
       redirect_to shop_path(params[:shop_id]), success: '口コミ投稿が完了しました'
     else
@@ -46,7 +46,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:title, :body, :review_image, :rate)
+    params.require(:review).permit(:title, :body, :review_image, :rate).merge(user_id: current_user.id, shop_id: params[:shop_id])
   end
 
   def review_update_params
