@@ -19,7 +19,7 @@ nav.navbar.navbar-dark.bg-dark
             = image_tag current_user.decorate.image_url, size: '25x25', class: 'rounded-circle mr-3'
             = current_user.name
           ul.dropdown-menu.text-center
-            li.mb-2= link_to 'マイページ', root_path
+            li.mb-2= link_to 'マイページ', dashboard_index_path
             li= link_to 'ログアウト', logout_path, method: :delete
       - else
         li.navbar-brand

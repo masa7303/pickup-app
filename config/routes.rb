@@ -16,14 +16,14 @@ Rails.application.routes.draw do
     resources :comments, only: %i[index create edit], shallow: true
   end
 
-  namespace :mypage do
+  namespace :mypages do
     get :reviews
     get :shops
     get :profile
     get :email
     get :password
   end
-  
+
   scope :mypage do
     resources :dashboard, only: %i[index]
     resources :profiles, only: %i[update]
