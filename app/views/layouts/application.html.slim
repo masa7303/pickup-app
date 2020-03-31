@@ -18,6 +18,12 @@ html
           li.navbar-brand= link_to '業務スレッド', tasks_path, class: 'nav-link'
           li.navbar-brand= link_to 'ユーザー一覧', admin_users_path, class: 'nav-link'
           li.navbar-brand= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
+          li.nav-item.dropdown.dropdown-slide
+          a#header-profile.nav-link aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#"
+            = image_tag current_user.decorate.image_url, size: '25x25', class: 'rounded-circle mr15'
+            = current_user.name
+          .dropdown-menu.dropdown-menu-right
+            = link_to 'ログアウト', logout_path, method: :delete, class: 'dropdown-item'
         - else
           li.navbar-brand= link_to 'ログイン', login_path, class: 'nav-link'
           li.navbar-brand= link_to '会員登録', new_admin_user_path, class: 'nav-link'

@@ -91,3 +91,6 @@ gem 'jcanvas-rails', '~> 0.1.0'
 
 # font-awesome
 gem 'font-awesome-sass', '~> 5.12.0'
+
+# decorateor
+gem 'draper'
