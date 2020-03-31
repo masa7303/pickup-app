@@ -23,15 +23,4 @@
         - else
           = f.submit '更新する', class: 'btn btn-success btn-block'
 
-/ 星評価
-javascript:
-  $('#star-rate-#{review.id}').raty({
-    size: 36,
-    starOff: "#{asset_path('star-off.png')}",
-    starOn: "#{asset_path('star-on.png')}",
-    starHalf: "#{asset_path('star-half.png')}",
-    half: true,
-    readOnly: true,
-    score: "#{review.rate}",
-  });
-/ 星評価終わり
+== render 'shared/star' , shop: shop
