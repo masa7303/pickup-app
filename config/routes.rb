@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'mypages/show'
   root to: 'tasks#index'
 
   # ログインまわり
