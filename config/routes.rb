@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     get :email
     get :password
   end
-
+  
   scope :mypage do
     resources :dashboard, only: %i[index]
     resources :profiles, only: %i[update]
