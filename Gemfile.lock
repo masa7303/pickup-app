@@ -294,6 +294,7 @@ DEPENDENCIES
   ransack
   sass-rails (~> 5.0)
   selenium-webdriver
+  slim
   slim-rails
   spring
   spring-watcher-listen (~> 2.0.0)

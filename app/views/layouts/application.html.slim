@@ -9,24 +9,8 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'jquery.japan-map.min.js'
   header
-    nav.navbar.navbar-dark.bg-dark
-      ul.nav_link
-        - if current_user
-          li.navbar-brand
-            = link_to shops_path, class: 'nav-link' do
-              i.fas.fa-utensils オススメのお店
-          li.navbar-brand= link_to '業務スレッド', tasks_path, class: 'nav-link'
-          li.navbar-brand= link_to 'ユーザー一覧', admin_users_path, class: 'nav-link'
-          li.navbar-brand= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
-          li.nav-item.dropdown.dropdown-slide
-          a#header-profile.nav-link aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#"
-            = image_tag current_user.decorate.image_url, size: '25x25', class: 'rounded-circle mr15'
-            = current_user.name
-          .dropdown-menu.dropdown-menu-right
-            = link_to 'ログアウト', logout_path, method: :delete, class: 'dropdown-item'
-        - else
-          li.navbar-brand= link_to 'ログイン', login_path, class: 'nav-link'
-          li.navbar-brand= link_to '会員登録', new_admin_user_path, class: 'nav-link'
+    = render 'shared/header'
+
   body
     .container
       - if flash.notice.present?

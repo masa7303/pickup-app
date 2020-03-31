@@ -1,0 +1,32 @@
+nav.navbar.navbar-dark.bg-dark
+  .container
+    ul.nav_link.menu.text-right.ml-auto
+      - if current_user
+        li.navbar-brand
+          = link_to shops_path, class: 'nav-link' do
+            i.fas.fa-utensils
+            span オススメのお店
+        li.navbar-brand
+          = link_to tasks_path, class: 'nav-link' do
+            i.fas.fa-laptop
+            span 業務スレッド
+        li.navbar-brand
+          = link_to admin_users_path, class: 'nav-link' do
+            i.fas.fa-user
+            span ユーザー一覧
+        li.navbar-brand.dropdown
+          a.dropdown-toggle data-toggle="dropdown" href="#"
+            = image_tag current_user.decorate.image_url, size: '25x25', class: 'rounded-circle mr-3'
+            = current_user.name
+          ul.dropdown-menu.text-center
+            li.mb-2= link_to 'マイページ', root_path
+            li= link_to 'ログアウト', logout_path, method: :delete
+      - else
+        li.navbar-brand
+          = link_to login_path, class: 'nav-link' do
+            i.fas.fa-key
+            span ログイン
+        li.navbar-brand
+          = link_to new_admin_user_path, class: 'nav-link' do
+            i.far.fa-sticky-note
+            span 会員登録
