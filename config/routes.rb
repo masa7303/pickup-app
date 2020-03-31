@@ -16,6 +16,13 @@ Rails.application.routes.draw do
     resources :comments, only: %i[index create edit], shallow: true
   end
 
+  resource :mypages, only: %i[show edit update] do
+    collection do
+      get :review
+      get :like
+    end
+  end
+
   resources :relationships, only: [:create, :destroy]
 
   resources :likes, only: [:create, :destroy]
