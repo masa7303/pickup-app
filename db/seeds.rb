@@ -288,3 +288,21 @@ shop.image.attach(io: File.open('app/assets/images/ramen.jpg'), filename: 'ramen
 
 shop = Shop.find(10)
 shop.image.attach(io: File.open('app/assets/images/sushi.jpg'), filename: 'sushi.jpg')
+
+Review.create!([
+  {id: 1, shop_id: 1, user_id: 1, rate: 3.5, title: '王道ラーメン', body: '結局こういうラーメンが一番美味しいですね！若い頃は家系などのこってりしたラーメンもよく食べていましたが、最近はこうしたあっさり王道ラーメンが好みです。家から近いのでかなりの頻度で通っています。'},
+  {id: 2, shop_id: 2, user_id: 2, rate: 4.0, title: 'ラーマンもさることながら、チャーシューが美味しい', body: '以前から気になっていたので行ってみました！スープを一口、なるほど確かにこれは美味しい。しかしそれよりも驚いたのはチャーシューの美味しさです！丁寧に下処理されトロトロに煮込まれたチャーシューは、これまで食べてきたラーメンの中でも一番でした。今度はぜひチャーシュー麺にしたいと思います。ごちそうさまでした。'},
+])
+
+review = Review.find(1)
+review.review_image.attach(io: File.open('app/assets/images/ramen-01.jpg'), filename: 'ramen-01.jpg')
+
+review = Review.find(2)
+review.review_image.attach(io: File.open('app/assets/images/ramen-02.jpg'), filename: 'ramen-02.jpg')
+
+Like.create!([
+  {id: 1, shop_id: 2, user_id: 1},
+  {id: 2, shop_id: 3, user_id: 1},
+  {id: 3, shop_id: 4, user_id: 1},
+  {id: 4, shop_id: 8, user_id: 1},
+])
