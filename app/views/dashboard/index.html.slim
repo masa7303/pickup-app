@@ -1,0 +1,22 @@
+.row.pt-3.pb-5
+  .col-md-8.order-md-2.mb-4
+    .card.bg-white.border-none.shadow-sm
+      .card-header.font-weight-bold
+        h2 #{current_user.name} さんのページ
+      .card-body.p-4
+        .user
+          .mypage-image.text-center
+            = image_tag current_user.decorate.image_url
+        p.text-center.fs-26.p-2= current_user.name
+        .mt-4
+          table.table.table-bordered
+            tr.success
+              th.text-center 投稿したレビュー
+              td.text-center
+                u= current_user.reviews.count
+            tr.success
+              th.text-center お気に入りのレビュー
+              td.text-center
+                u= current_user.likes.count
+  .col-md-4.order-md-1
+    = render 'mypage/sidebar'

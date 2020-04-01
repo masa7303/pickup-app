@@ -39,7 +39,7 @@ class TasksController < ApplicationController
   def update
     task = current_user.tasks.find(params[:id])
     task.update!(task_params)
-    redirect_to tasks_url, notice: "業務スレッド「#{task.name}」を更新しました。"
+    redirect_to mypage_dashboad_path, notice: "メールアドレスを更新しました。"
   end
 
   def destroy

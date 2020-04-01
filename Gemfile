@@ -95,3 +95,9 @@ gem 'font-awesome-sass', '~> 5.12.0'
 
 # decorateor
 gem 'draper'
+
+# simple_formを使用
+gem 'simple_form'
+
+# パスワードのセキュリティ対策
+gem 'bcrypt', '~> 3.1.7'

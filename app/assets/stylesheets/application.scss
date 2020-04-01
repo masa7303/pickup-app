@@ -21,6 +21,7 @@
 @import 'tasks';
 @import 'reviews';
 @import 'likes';
+@import 'mypages';
 
 html {
   font-size: 62.5%;
@@ -141,4 +142,19 @@ html {
 .ad-img {
   width: 100%;
   height: auto;
+}
+
+.notifications {
+  color: $white;
+  text-align: center;
+  font-size: 1.4rem;
+
+  .notice {
+    background-color: lightBlue;
+    padding: 0.75rem 1.25rem;
+  }
+
+  .alert {
+    background-color: red;
+  }
 }

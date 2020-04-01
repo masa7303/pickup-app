@@ -1,0 +1,13 @@
+// Place all the styles related to the mypages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.mypage-image img {
+  width: 100px;
+  height: 100px;
+}
+
+.update-form {
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-word;
+}

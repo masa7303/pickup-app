@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_secure_password
+
   has_many :tasks, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :shops
@@ -11,6 +13,9 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :user
 
   has_one_attached :image
+
+  validates :name, presence: true
+  validates :email, uniqueness: true, presence: true
 
   def follow(other_user)
     unless self == other_user
