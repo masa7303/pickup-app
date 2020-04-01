@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_one_attached :image
 
   validates :name, presence: true
+  validates :password, confirmation: true
   validates :email, uniqueness: true, presence: true
 
   def follow(other_user)
