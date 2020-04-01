@@ -12,6 +12,9 @@ class User < ApplicationRecord
 
   has_one_attached :image
 
+  validates :name, presence: true
+  validates :email, uniqueness: true, presence: true
+
   def follow(other_user)
     unless self == other_user
       self.relationships.find_or_create_by(follow_id: other_user.id)

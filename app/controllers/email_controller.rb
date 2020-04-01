@@ -3,14 +3,16 @@ class EmailController < ApplicationController
 
   def update
     default_params = email_params
-    return redirect_to mypages_email_path, flash: { danger: '確認用メールアドレスと一致しません' } unless tmp_params[:email] == default_params.delete(:email_confirmation)
-    flash[:success] = 'メールアドレスを変更しました' if current_user.update(default_params)
-    redirect_to dashboard_index_path
+    if current_user.update(default_params)
+      redirect_to mypage_email_url, notice: 'メールアドレスが変更されました'
+    else
+      redirect_to mypage_email_url, alert: 'ユーザー情報の編集に失敗しました'
+    end
   end
 
   private
 
   def email_params
-    params.require(:user).permit(:email, :email_confirmation)
+    params.require(:user).permit(:email)
   end
 end

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[index create edit], shallow: true
   end
 
-  namespace :mypages do
+  namespace :mypage do
     get :reviews
     get :shops
     get :profile

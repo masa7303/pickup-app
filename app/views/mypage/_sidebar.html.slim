@@ -6,7 +6,7 @@ aside
         = link_to dashboard_index_path, class: "d-block p-3" do
           i.fas.fa-home ホーム
       li.list-group-item.list-group-item-action.p-0
-        = link_to mypages_reviews_path(current_user), class: "d-block p-3" do
+        = link_to mypage_reviews_path(current_user), class: "d-block p-3" do
           i.fas.fa-star レビュー
   .d-md-block.d-none
     ul.list-group.shadow-sm
@@ -15,7 +15,7 @@ aside
         = link_to root_path(current_user), class: "d-block p-3" do
           i.fas.fa-address-card プロフィール
       li.list-group-item.list-group-item-action.p-0
-        = link_to mypages_email_path(current_user), class: "d-block p-3" do
+        = link_to mypage_email_path(current_user), class: "d-block p-3" do
           i.fas.fa-envelope メールアドレス
       li.list-group-item.list-group-item-action.p-0
         = link_to root_path(current_user), class: "d-block p-3" do

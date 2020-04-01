@@ -1,4 +1,4 @@
-class MypagesController < ApplicationController
+class MypageController < ApplicationController
   def reviews
     @my_reviews = current_user.reviews.page(params[:page]).order(created_at: :desc)
   end

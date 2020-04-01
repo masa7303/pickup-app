@@ -13,6 +13,7 @@ html
 
   body
     .container
-      - if flash.notice.present?
-        .alert.alert-success= flash.notice
+      .notifications
+        - flash.each do |key, value|
+          = content_tag(:div, value, class: key)
       = yield
