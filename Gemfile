@@ -95,3 +95,6 @@ gem 'font-awesome-sass', '~> 5.12.0'
 
 # decorateor
 gem 'draper'
+
+# simple_formを使用
+gem 'simple_form'
