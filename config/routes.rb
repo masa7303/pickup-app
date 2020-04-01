@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'tasks#index'
+  get 'home/index'
+  root to: 'home#index'
 
   # ログインまわり
   get '/login', to: 'sessions#new'

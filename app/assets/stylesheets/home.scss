@@ -1,0 +1,13 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.top-banner-btn {
+  box-shadow: 0 7px 10px rgba(0,0,0,0.7);
+  transition: .3s;
+  border-radius: 10px;
+}
+
+.top-banner-btn:hover {
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  opacity: 0.8;
+}
