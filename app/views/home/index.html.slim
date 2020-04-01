@@ -1,2 +1,15 @@
-h1 Home#index
-p Find me in app/views/home/index.html.slim
+.header_box
+  = image_tag('shop-bgimg.png', class: "header_bg_img")
+  .header_ttl.text-center
+    h1.header_ttl_ja こうむいんch
+    p.header_ttl_en TOP
+
+.row
+  .col-md-6
+    = link_to shops_path do
+      .text-center
+        = image_tag('top-food-banner.png', class: "top-banner-btn")
+  .col-md-6
+    = link_to tasks_path do
+      .text-center
+        = image_tag('top-work-banner.png', class: "top-banner-btn")
