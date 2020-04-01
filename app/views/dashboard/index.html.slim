@@ -2,10 +2,10 @@
   .col-md-8.order-md-2.mb-4
     .card.bg-white.border-none.shadow-sm
       .card-header.font-weight-bold
-        h2 マイページ
+        h2 #{current_user.name} さんのページ
       .card-body.p-4
         .user
-          .image
+          .mypage-image.text-center
             = image_tag current_user.decorate.image_url
         p.text-center.fs-26.p-2= current_user.name
         .mt-4
