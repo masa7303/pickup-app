@@ -33,4 +33,5 @@
                     p.mb-0= review.created_at.strftime("%Y年%m月%d日")
                 .col-md-2
                   .review-image
-                    = image_tag review.review_image, size: "70x70"
+                    - if review.review_image.attached?
+                      = image_tag review.review_image, size: "70x70"
