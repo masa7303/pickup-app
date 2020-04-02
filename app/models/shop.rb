@@ -18,5 +18,8 @@ class Shop < ApplicationRecord
   }
 
   validates :name, presence: true
+  validates :prefecture, presence: true
   validates :address, presence: true
+  validates :phone, presence: true
+  validates :image, presence: true
 end

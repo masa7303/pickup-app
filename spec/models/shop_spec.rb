@@ -27,6 +27,29 @@ RSpec.describe Shop, type: :model do
         end
       end
 
+      context '店がある都道府県がないとき' do
+        it "エラーあり" do
+          shop = Shop.new(prefecture: nil)
+          expect(shop.valid?).to eq(false)
+          expect(shop.errors[:prefecture]).to include("を入力してください")
+        end
+      end
+
+      context '店の住所がないとき' do
+        it "エラーあり" do
+          shop = Shop.new(address: nil)
+          expect(shop.valid?).to eq(false)
+          expect(shop.errors[:name]).to include("を入力してください")
+        end
+      end
+
+      context '店の電話番号がないとき' do
+        it "エラーあり" do
+          shop = Shop.new(phone: nil)
+          expect(shop.valid?).to eq(false)
+          expect(shop.errors[:phone]).to include("を入力してください")
+        end
+      end
     end
   end
 end
