@@ -1,2 +1,16 @@
-h1 Reviews#edit
-p Find me in app/views/reviews/edit.html.slim
+.header_box
+  = image_tag('shop-bgimg.png', class: "header_bg_img")
+  .header_ttl.text-center
+    h1.header_ttl_ja レビュー
+    p.header_ttl_en REVIEW
+
+.row.pt-3.pb-5
+  .col-md-8
+    .card.bg-white.border-none.shadow-sm
+      .card-header.font-weight-bold
+        h2 レビューを編集する
+      .card-body.p-4
+        == render 'reviews/form', shop: @shop, review: @review
+
+  .col-md-4
+    == render 'shared/sidemenu'
