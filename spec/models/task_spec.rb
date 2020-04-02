@@ -16,7 +16,6 @@ RSpec.describe Task, type: :model do
       end
     end
 
-    # 異常な場合
     context 'section、name、description、user_idがあるとき' do
       it "エラーなし" do
         task = @task
@@ -24,6 +23,7 @@ RSpec.describe Task, type: :model do
       end
     end
 
+    # 異常な場合
     context 'スレッドの名前がないとき' do
       it "エラーあり" do
         task = Task.new(name: nil)
@@ -39,8 +39,5 @@ RSpec.describe Task, type: :model do
         expect(task.errors[:description]).to include("を入力してください")
       end
     end
-
-
-
   end
 end
