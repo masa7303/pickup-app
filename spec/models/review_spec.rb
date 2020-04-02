@@ -10,4 +10,9 @@ RSpec.describe Review, type: :model do
       expect(build(:review)).to be_valid
     end
   end
+
+  describe "Validations" do
+    # 名前がなければ無効
+    it { is_expected.to validate_presence_of(:title) }
+  end
 end
