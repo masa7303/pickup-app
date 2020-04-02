@@ -1,5 +1,16 @@
 .card.bg-white.shadow-sm.mb-3
   .card-header.font-weight-bold
-    p スポンサードリンク
+    h2 新着口コミ
+  .card-body
+    - @reviews.each do |review|
+      .col-md-12.mb-3
+        = link_to review do
+          .card.p-3.sidebar-newreview-box
+            h2.sidebar-review-shop-name #{review.shop.name} (#{review.shop.prefecture})
+            p.mb-0.sidebar-review-ttl= review.title
+
+.card.bg-white.shadow-sm.mb-3
+  .card-header.font-weight-bold
+    h2 スポンサードリンク
   .card-body.text-center
     = image_tag('adsence.png', class: "ad-img")
