@@ -4,7 +4,7 @@ class ShopsController < ApplicationController
   def index
     @q = Shop.ransack(params[:q])
     @shops = @q.result(distinct: true).with_attached_image.page(params[:page]).per(6)
-    @reviews = Review.recent.limit(5)
+    @reviews = Review.recent.includes([:shop]).limit(5)
   end
 
   def show
