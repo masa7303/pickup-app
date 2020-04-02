@@ -1,3 +1,6 @@
+- breadcrumb :new_task
+== render 'shared/breadcrumbs'
+
 div.task-ttl-box
   h1.task-ttl= @task.name
   p.task-tag= render 'tasks/tag_list', tag_list: @task.tag_list

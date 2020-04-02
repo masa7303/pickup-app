@@ -3,6 +3,10 @@
   .header_ttl.text-center
     h1.header_ttl_ja 業務スレッド
     p.header_ttl_en work
+
+- breadcrumb :task
+== render 'shared/breadcrumbs'
+
 div.text-center
   = link_to '新規登録', new_task_path, class: 'btn btn-primary'
 
