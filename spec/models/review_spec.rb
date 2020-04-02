@@ -12,7 +12,8 @@ RSpec.describe Review, type: :model do
   end
 
   describe "Validations" do
-    # 名前がなければ無効
+    # タイトルがなければ無効
     it { is_expected.to validate_presence_of(:title) }
+    
   end
 end
