@@ -1,20 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Shop, type: :model do
-  before do
-    @user = FactoryBot.create(:user)
-    @shop = FactoryBot.create(:shop, user: @user)
-  end
-
   describe 'バリデーションのテスト' do
 
     describe '店舗の新規登録にかかるバリデーションのテスト' do
 
       # 正常な場合
-      context 'バリデーションが全て正しいとき' do
+      context 'ファクトリが有効なとき' do
         it 'エラーなし' do
-          shop = @shop
-          expect(shop).to be_valid
+          expect(build(:shop)).to be_valid
         end
       end
 
