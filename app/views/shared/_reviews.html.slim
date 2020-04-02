@@ -19,6 +19,7 @@
                   .review-content
                     h2.fs-22.font-weight-bold
                       = review.title
+                    h6.m-1 評価 :#{review.rate}点
                     span.m-1 id="star-rate-#{review.id}"
                     javascript:
                       $('#star-rate-#{review.id}').raty({
@@ -30,6 +31,7 @@
                         readOnly: true,
                         score: "#{review.rate}",
                       });
+
                     p.fs-12.mb-2= truncate(review.body, length: 40)
                     p.mb-0= review.created_at.strftime("%Y年%m月%d日")
 
