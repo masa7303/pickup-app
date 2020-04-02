@@ -1,9 +1,9 @@
 class Task < ApplicationRecord
   acts_as_taggable
-  
+
   validates :name, presence: true
   validates :description, presence: true
 
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
 end

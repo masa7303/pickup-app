@@ -3,5 +3,6 @@ FactoryBot.define do
     section { '税務' }
     name { '確定申告について' }
     description { '待ち時間のストレス緩和' }
+    association :user
   end
 end
