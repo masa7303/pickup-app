@@ -1,25 +1,56 @@
 crumb :root do
-  link "Home", root_path
+  link "トップページ", root_path
 end
 
-# crumb :projects do
-#   link "Projects", projects_path
-# end
+crumb :mypage do
+  link "マイページ", dashboard_index_path
+end
 
-# crumb :project do |project|
-#   link project.name, project_path(project)
-#   parent :projects
-# end
+crumb :email_change do
+  link "メールアドレスの変更", mypage_email_path(current_user)
+  parent :mypage
+end
 
-# crumb :project_issues do |project|
-#   link "Issues", project_issues_path(project)
-#   parent :project, project
-# end
+crumb :password_change do
+  link "パスワードの変更", mypage_password_path(current_user)
+  parent :mypage
+end
 
-# crumb :issue do |issue|
-#   link issue.title, issue_path(issue)
-#   parent :project_issues, issue.project
-# end
+crumb :myreview do
+  link "レビュー", mypage_reviews_path(current_user)
+  parent :mypage
+end
+
+crumb :user do
+  link "ユーザー一覧", admin_users_path
+end
+
+crumb :show_user do
+  link "ユーザーの詳細", admin_user_path
+  parent :user
+end
+
+crumb :shop do
+  link "オススメのお店", shops_path
+end
+
+crumb :new_shop do
+  link "お店を登録", new_shop_path
+  parent :shop
+end
+
+crumb :review do
+  link "レビュー", review_path
+  parent :shop
+end
+
+crumb :task do
+  link "業務スレッド", tasks_path
+end
+
+crumb :new_task do
+  link "業務スレッドを登録", new_task_path
+end
 
 # If you want to split your breadcrumbs configuration over multiple files, you
 # can create a folder named `config/breadcrumbs` and put your configuration

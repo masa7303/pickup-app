@@ -1,5 +1,8 @@
 = render partial: 'header'
 
+- breadcrumb :shop
+== render 'shared/breadcrumbs'
+
 .row
   .col-md-8
     .card.bg-white.border-none.shadow-sm.mb-3
@@ -7,7 +10,7 @@
         h2 店舗情報の追加
       .card-body
         = link_to new_shop_path, class: "" do
-        = image_tag('newshop-banner.png', class: "button-img")
+          = image_tag('newshop-banner.png', class: "button-img")
 
     .card.bg-white.border-none.shadow-sm.mb-3
       .card-header.font-weight-bold

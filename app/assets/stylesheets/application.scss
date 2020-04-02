@@ -79,6 +79,21 @@ html {
 }
 
 // ヘッダー
+.breadcrumbs {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.breadcrumbs a,
+.breadcrumbs span {
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 .dropdown-toggle {
   color: #fff;
 }
@@ -106,7 +121,7 @@ html {
 
 .header_box {
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   margin-left: calc(((100vw - 100%) / 2) * -1);
   margin-right: calc(((100vw - 100%) / 2) * -1);
   width: 100vw;
