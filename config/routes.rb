@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'users/search', to: 'admin/users#search'
 
+  get 'reviews', to: 'reviews#index'
+
   resources :tasks do
     resources :comments, only: %i[index create edit], shallow: true
   end

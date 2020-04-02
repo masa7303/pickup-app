@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
 
   def index
     @q = Review.ransack(params[:q])
-    @reviews = @q.result(distinct: true).with_attached_review_image
+    @reviews = @q.result(distinct: true).recent.includes([:user, :review_image_attachment])
   end
 
   def edit

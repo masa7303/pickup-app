@@ -12,4 +12,5 @@ class Review < ApplicationRecord
 
   has_one_attached :review_image
 
+  scope :recent, -> { order(created_at: :desc) }
 end
