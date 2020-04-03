@@ -5,13 +5,17 @@
   table.table
     tr
       th 名前
-      td= f.hidden_field :name
+      td
+        = f.hidden_field :name
         = @inquiry.name
+    tr
       th メールアドレス
-      td= f.hidden_field :email
+      td
+        = f.hidden_field :email
         = @inquiry.email
     tr
       th お問い合わせ内容
-      td= f.hidden_field :message
+      td
+        = f.hidden_field :message
         = simple_format(@inquiry.message)
   = f.submit '送信', :class => 'btn btn-primary'

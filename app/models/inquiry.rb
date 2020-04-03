@@ -1,4 +1,4 @@
-class Inquiry
+class Inquiry < ApplicationRecord
   include ActiveModel::Model
 
   attr_accessor :name, :email, :message
