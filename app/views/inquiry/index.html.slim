@@ -1,6 +1,6 @@
 = form_for @inquiry, :url => inquiry_confirm_path do |f|
-  .page-header
-    h1 お問い合わせ
+  .page-header.text-center
+    h1.mt-50.mb-30 お問い合わせ
 
   - if @inquiry.errors.any?
     .alert.alert-danger
@@ -9,7 +9,7 @@
         = @inquiry.errors.each do |attr, msg|
           li= msg
 
-  table.table
+  table.table.inquiry-table
     tr
       th
         | 名前
@@ -21,6 +21,7 @@
         span.text-danger （必須）
       td= f.text_field :email
     tr
-      th お問い合わせ内容
+      th.textarea-ttl お問い合わせ内容
       td= f.text_area :message
-  = f.submit '確認', class: 'btn btn-primary'
+  .text-center
+    = f.submit '確認', class: 'btn btn-primary mt-30'
