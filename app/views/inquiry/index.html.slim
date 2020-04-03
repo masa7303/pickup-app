@@ -1,0 +1,29 @@
+== render partial: 'header'
+
+- breadcrumb :contact
+== render 'shared/breadcrumbs'
+
+= form_for @inquiry, :url => inquiry_confirm_path do |f|
+  - if @inquiry.errors.any?
+    .alert.alert-danger
+      strong 入力内容にエラーがあります
+      ul
+        = @inquiry.errors.each do |attr, msg|
+          li= msg
+
+  table.table.inquiry-table
+    tr
+      th
+        | 名前
+        span.text-danger （必須）
+      td= f.text_field :name
+    tr
+      th
+        | メールアドレス
+        span.text-danger （必須）
+      td= f.text_field :email
+    tr
+      th.textarea-ttl お問い合わせ内容
+      td= f.text_area :message
+  .text-center
+    = f.submit '確認', class: 'btn btn-primary mt-30'

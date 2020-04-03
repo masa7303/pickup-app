@@ -110,3 +110,6 @@ gem 'simple_form'
 
 # パンくずリスト
 gem "gretel"
+
+# 環境変数
+gem 'dotenv-rails'
