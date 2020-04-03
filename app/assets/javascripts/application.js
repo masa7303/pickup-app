@@ -18,6 +18,7 @@
 //= require bootstrap-sprockets
 //= require jquery_raty.js
 
+
 (function($) {
   'use strict';
 
