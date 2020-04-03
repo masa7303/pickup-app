@@ -2,9 +2,22 @@ FactoryBot.define do
   factory :user do
     sequence(:name) { |n| "テスト#{n}ユーザー" }
     sequence(:email) {|n| "servant#{n}@example.com"}
-    password {"servant"}
-    password_confirmation {"servant"}
+    password {"password"}
+    password_confirmation {"password"}
     prefecture { "東京都" }
     municipality { "渋谷区" }
+    role { :normal }
+  end
+
+  trait :guest do
+    role { :guest }
+  end
+
+  trait :admin do
+    role { :admin }
+    name { '管理者ユーザー' }
+    email { 'admin@test.com' }
+    password {'servant'}
+    password_confirmation {'servant'}
   end
 end
