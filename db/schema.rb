@@ -129,9 +129,9 @@ ActiveRecord::Schema.define(version: 2020_03_30_220016) do
     t.string "password_digest", null: false
     t.string "prefecture", null: false
     t.string "municipality"
+    t.integer "role", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
