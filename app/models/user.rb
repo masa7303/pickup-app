@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
-  has_secure_password
 
   has_many :tasks, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -15,8 +14,14 @@ class User < ApplicationRecord
 
   has_one_attached :image
 
-  validates :name, presence: true
   validates :email, uniqueness: true, presence: true
+  validates :name, presence: true
+  validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
+  validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
+  validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
+  validates :role, presence: true
+
+  enum role: { normal: 0, admin: 1, guest: 2 }
 
   def follow(other_user)
     unless self == other_user
