@@ -52,6 +52,10 @@ crumb :new_task do
   link "業務スレッドを登録", new_task_path
 end
 
+crumb :contact do
+  link "問い合わせ", inquiry_path
+end
+
 # If you want to split your breadcrumbs configuration over multiple files, you
 # can create a folder named `config/breadcrumbs` and put your configuration
 # files there. All *.rb files (e.g. `frontend.rb` or `products.rb`) in that
