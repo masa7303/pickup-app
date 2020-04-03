@@ -118,6 +118,28 @@ User.create!(
   updated_at: "2020-01-01 00:00:00"
 )
 
+User.create!(
+  id: 11,
+  name: 'テストユーザー',
+  email: 'testuser@test.com',
+  password: 'servant',
+  password_confirmation: 'servant',
+  role: :guest,
+  prefecture: '東京都',
+  municipality: '新宿区',
+)
+
+User.create!(
+  id: 12,
+  name: '管理者アカウント',
+  email: Rails.application.credentials.user[:admin_user_email] ,
+  password: Rails.application.credentials.user[:admin_user_password],
+  password_confirmation: Rails.application.credentials.user[:admin_user_password],
+  role: :admin,
+  prefecture: '東京都',
+  municipality: '新宿区',
+)
+
 user = User.find(1)
 user.image.attach(io: File.open('app/assets/images/icon-01.jpg'), filename: 'icon-01.jpg')
 
