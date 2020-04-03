@@ -282,6 +282,8 @@ GEM
       oauth (~> 0.4, >= 0.4.4)
       oauth2 (~> 1.0, >= 0.8.0)
     spring (2.1.0)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
@@ -324,7 +326,6 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 6.0)
-  bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   bootstrap
   bullet
@@ -359,6 +360,7 @@ DEPENDENCIES
   slim-rails
   sorcery
   spring
+  spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
