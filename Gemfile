@@ -72,6 +72,9 @@ gem 'slim-rails'
 gem 'html2slim'
 gem 'slim'
 
+# 認証
+gem 'sorcery'
+
 # Bootstrapを導入
 gem 'bootstrap'
 
