@@ -1,10 +1,9 @@
+== render partial: 'header'
+
 - breadcrumb :contact
 == render 'shared/breadcrumbs'
 
 = form_for @inquiry, :url => inquiry_confirm_path do |f|
-  .page-header.text-center
-    h1.mt-50.mb-30 お問い合わせ
-
   - if @inquiry.errors.any?
     .alert.alert-danger
       strong 入力内容にエラーがあります
