@@ -22,16 +22,29 @@
       .card-header.font-weight-bold
         h2 店舗一覧
       .card-body
-        .mb-3.row
+        #shop-card.mb-3.row
           - @shops.each do |shop|
-            .col-md-4.mb-3
+            #shop-card-contents.col-md-4.mb-3
               .card.text-center.p-3
                 = link_to shop do
                   .shop-card-img= image_tag shop.image, size: "200x200"
                   h2.mt-2= shop.name
                   = shop.prefecture
                   = shop.address
-        = paginate @shops
+        .navigation
+          = link_to_next_page @shops, 'Next Page'
+        = link_to '', class: "view-more-button" do
+          |  test
+          javascript:
+            var infScroll = new InfiniteScroll( '#shop-card', { //大枠のセレクタ
+              append: '#shop-card-contents', //読み込むボックスたちのセレクタ
+              path: '.navigation a', //次ページへ飛ぶための「次へ」ボタンのセレクタ
+              hideNav: '.navigation',
+              button: '.view-more-button', //「もっと見る」ボタンのセレクタ
+              history: 'false', //読み込み後のURLを変更しない
+              debug: false,
+              scrollThreshold: false
+            });
 
   .col-md-4
     == render 'shared/sidemenu'
