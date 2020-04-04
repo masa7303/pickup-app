@@ -6,6 +6,7 @@ class TasksController < ApplicationController
 
   def index
     @q = Task.ransack(params[:q])
+    @task = Task.new
     @tasks = @q.result(distinct: true)
 
     #タグ絞り込み
