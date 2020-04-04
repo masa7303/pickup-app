@@ -39,6 +39,15 @@ div.text-center
         h2 検索
       .card-body.text-center
         = render 'search_form'
+
+    .card.bg-white.border-none.shadow-sm.mb-3.tag-card
+      .card-header.font-weight-bold
+        h2 登録されたタグ
+      .card-body
+        - tag_cloud(@tags, %w(btn-primary)) do |tag, css_class|
+          = link_to "#{tag.name}(#{tag.count})", tasks_path(tag_name: tag.name), class: css_class
+
+
     = link_to inquiry_path do
       = image_tag('mail_banner.png', class: "ad-img mb-3")
 
