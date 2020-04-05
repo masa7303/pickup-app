@@ -8,11 +8,11 @@ div.row
       .row
         .col-md.p-0
           div.text-center
-            strong フォロワー
+            = image_tag('follower.png', class: "user-show-icon-img")
           div.text-center
             strong= "#{user.followers.count}"
         .col-md.p-0
           div.text-center
-            strong フォロー
+            = image_tag('follow.png', class: "user-show-icon-img")
           div.text-center
             strong= "#{user.followings.count}"
