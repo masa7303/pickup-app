@@ -28,8 +28,10 @@ Rails.application.routes.draw do
   end
 
   namespace :mypage do
+    get :shops
     get :reviews
     get :threads
+    get :comments
     get :shops
     get :profile
     get :email

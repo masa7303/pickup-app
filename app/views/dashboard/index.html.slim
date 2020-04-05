@@ -12,14 +12,26 @@
             = image_tag current_user.decorate.image_url
         p.text-center.fs-26.p-2= current_user.name
         .mt-4
-          table.table.table-bordered
+          table.dashboard-table.table-bordered
+            tr.success
+              th.text-center いいね！した店舗
+              td.text-center
+                = link_to mypage_shops_path(current_user), class: "d-block p-3" do
+                  u= current_user.likes.count
             tr.success
               th.text-center 投稿したレビュー
               td.text-center
-                u= current_user.reviews.count
+                = link_to mypage_reviews_path(current_user), class: "d-block p-3" do
+                  u= current_user.reviews.count
             tr.success
-              th.text-center お気に入りのレビュー
+              th.text-center 投稿したスレッド
               td.text-center
-                u= current_user.likes.count
+                = link_to mypage_threads_path(current_user), class: "d-block p-3" do
+                  u= current_user.tasks.count
+            tr.success
+              th.text-center 投稿したコメント
+              td.text-center
+                = link_to mypage_reviews_path(current_user), class: "d-block p-3" do
+                  u= current_user.comments.count
   .col-md-4.order-md-1
     = render 'mypage/sidebar'
