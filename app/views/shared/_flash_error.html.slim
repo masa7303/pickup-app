@@ -1,0 +1,4 @@
+- if flash[:error].present?
+  ul.errors
+    = flash[:error].each do |error|
+      li= error

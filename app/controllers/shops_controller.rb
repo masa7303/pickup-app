@@ -1,5 +1,6 @@
 class ShopsController < ApplicationController
   before_action :login_required, except: :new
+  before_action :recent_review
 
   def index
     @q = Shop.ransack(params[:q])
@@ -15,6 +16,7 @@ class ShopsController < ApplicationController
   end
 
   def new
+    @reviews = Review.recent.includes([:shop]).limit(5)
     @shop = Shop.new
   end
 
@@ -27,6 +29,7 @@ class ShopsController < ApplicationController
     if @shop.save
       redirect_to @shop, notice: "業務スレッド「#{@shop.name}」を登録しました"
     else
+      # redirect_to new_shop_path, flash: { error: @shop.errors.full_messages }
       render :new
     end
   end
@@ -46,4 +49,7 @@ class ShopsController < ApplicationController
     params.require(:q).permit!
   end
 
+  def recent_review
+    @reviews = Review.recent.includes([:shop]).limit(5)
+  end
 end

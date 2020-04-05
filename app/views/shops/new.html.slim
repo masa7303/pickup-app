@@ -9,4 +9,8 @@
       .card-header.font-weight-bold
         h2 新規登録
       .card-body
-        = render partial: 'form', locals: { shop: @shop }
+        == render 'shared/flash_error'
+        == render partial: 'form', locals: { shop: @shop }
+
+  .col-md-4
+    == render 'shared/sidemenu'

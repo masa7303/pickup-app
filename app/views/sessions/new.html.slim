@@ -1,4 +1,9 @@
-h1.text-center.page-ttl ログイン
+.header_box
+  = image_tag('user-bgimg.png', class: "header_bg_img")
+  .header_ttl.text-center
+    h1.header_ttl_ja ログイン
+    p.header_ttl_en LOGIN
+
 
 div.width-40.text-center
   = form_with scope: :session, local: true do |f|

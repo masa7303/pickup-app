@@ -1,17 +1,23 @@
 = form_with model: shop, local: true do |f|
+  == render 'shared/error_messages', object: f.object
   .form-group
+    span.badge.badge-danger.m-2 必須
     = f.label :name
     = f.text_field :name, class: 'form-control', id: 'shop_name'
   .form-group
+    span.badge.badge-danger.m-2 必須
     = f.label :prefecture
     = f.select :prefecture, Shop.prefectures.keys, class: 'form-control'
   .form-group
+    span.badge.badge-danger.m-2 必須
     = f.label :address
     = f.text_field :address, class: 'form-control', id: 'shop_name'
   .form-group
+    span.badge.badge-danger.m-2 必須
     = f.label :phone
     = f.text_field :phone, class: 'form-control', id: 'shop_name'
   .form-group
+    span.badge.badge-danger.m-2 必須
     = f.label :image
     = f.file_field :image, class: 'form-control'
   .text-center
