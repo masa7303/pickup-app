@@ -7,11 +7,12 @@ class TasksController < ApplicationController
   def index
     @q = Task.ransack(params[:q])
     @task = Task.new
-    @tasks = @q.result(distinct: true)
+    @tasks = @q.result(distinct: true).page(params[:page]).per(10)
 
     #タグ絞り込み
     if params[:tag_name]
-      @tasks = Task.tagged_with("#{params[:tag_name]}")
+      # 簡単な書き方検討必要
+      @tasks = Task.tagged_with("#{params[:tag_name]}").ransack(params[:q]).result(distinct: true).page(params[:page]).per(10)
     end
   end
 
