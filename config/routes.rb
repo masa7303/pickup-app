@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get 'privacy', to: 'static_pages#privacy'
 
   resources :tasks do
-    resources :comments, only: %i[index create edit], shallow: true
+    resources :comments, only: %i[index create edit destroy], shallow: true
   end
 
   namespace :mypage do

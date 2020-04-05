@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_post, except: [:index]
+  before_action :set_post, except: [:index, :destroy]
 
   def index
     @comments = Task.all
@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @comment = current_user.find(params[:id])
+    @comment = current_user.comments.find(params[:id])
   end
 
   def create
@@ -24,6 +24,12 @@ class CommentsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    comment = current_user.comments.find(params[:id])
+    comment.destroy
+    redirect_to mypage_comments_path(current_user), notice: "コメントを削除しました。"
   end
 
   private

@@ -11,6 +11,10 @@ class MypageController < ApplicationController
     @my_threads = current_user.tasks.page(params[:page]).order(created_at: :desc)
   end
 
+  def comments
+    @my_comments = current_user.comments.includes([:task]).page(params[:page]).order(created_at: :desc)
+  end
+
   def profile; end
 
   def email; end

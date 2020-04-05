@@ -1,1 +1,28 @@
-p test
+- breadcrumb :myreview
+== render 'shared/breadcrumbs'
+
+.row.pt-3.pb-5
+  .col-sm-8.order-md-2.mb-3
+    .card.bg-white.border-none.shadow-sm.mb-3
+      .card-header.font-weight-bold
+        h2 業務スレッドへ投稿したコメント
+      .card-body
+        - if @my_comments.empty?
+          h2.p-3.text-center レビューがありません
+        - else
+          .card-body.p-4
+            .row
+              - @my_comments.each do |comment|
+                .col-md-11
+                  = link_to task_path(comment.task) do
+                      .card.p-4.mb-3
+                        p.text-dark スレッド名 ( #{comment.task.name} )
+                        p.mypage-comment-body= comment.body.truncate(30)
+                        p.text-right= comment.created_at.strftime("%Y年%m月%d日")
+                .col-md-1.icon-parent
+                  = link_to comment_path(comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger d-block" do
+                    i.fas.fa-trash
+
+
+  .col-sm-4.order-md-1
+    = render 'mypage/sidebar'
