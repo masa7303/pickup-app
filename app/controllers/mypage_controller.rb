@@ -7,6 +7,10 @@ class MypageController < ApplicationController
     @favorite_shops = current_user.likes.includes(:shop).page(params[:page]).order(created_at: :desc)
   end
 
+  def threads
+    @my_threads = current_user.tasks.page(params[:page]).order(created_at: :desc)
+  end
+
   def profile; end
 
   def email; end
