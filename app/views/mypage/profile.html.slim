@@ -1,0 +1,31 @@
+- breadcrumb :mypage
+== render 'shared/breadcrumbs'
+
+.row.pt-3.pb-5
+  .col-md-8.order-md-2.mb-4
+    .card.bg-white.border-none.shadow-sm
+      .card-header.font-weight-bold
+        h2 #{current_user.name} さんのプロフィール
+      .card-body.p-4
+        .mt-4
+          table.table.table-bordered
+            tr.success
+              th 画像
+              td= image_tag current_user.decorate.image_url
+            tr.success
+              th 名前
+              td= current_user.name
+            tr.success
+              th 都道府県
+              td= current_user.prefecture
+            tr.success
+              th 自治体
+              td= current_user.municipality
+        .text-center
+          = link_to edit_admin_user_path(current_user), class: "btn btn-primary btn-sm mr-1" do
+            i.fas.fa-edit 編集
+          = link_to admin_user_path(current_user), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger btn-sm ml-1" do
+            i.fas.fa-trash 削除
+
+  .col-md-4.order-md-1
+    = render 'mypage/sidebar'
