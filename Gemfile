@@ -113,3 +113,6 @@ gem "gretel"
 
 # 環境変数
 gem 'dotenv-rails'
+
+# 都道府県データ
+gem 'jp_prefecture'
