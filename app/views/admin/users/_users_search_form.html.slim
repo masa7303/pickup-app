@@ -1,20 +1,26 @@
-h5.search_heading.w-100 検索条件
-- if params[:q]
-  div.search_field.px-1
-    - unless params[:q][:name_cont].empty?
-      div.font-weight-bold 名前: #{params[:q][:name_cont]}
-- else
-  div.search_field.text-center 検索条件はありません
+.search-terms
+  h5.search_heading.w-100 検索条件
+  - if params[:q]
+    div.search_field.px-1
+      - unless params[:q][:name_cont].empty?
+        div.font-weight-bold 名前: #{params[:q][:name_cont]}
+      - unless params[:q][:prefecture_eq].empty?
+        div.font-weight-bold 都道府県: #{params[:q][:prefecture_eq]}
+      - unless params[:q][:municipality_cont].empty?
+        div.font-weight-bold 自治体: #{params[:q][:municipality_cont]}
+  - else
+    div.search_field.text-center 検索条件はありません
 
 
 = search_form_for(q, url:users_search_path) do |f|
-  p
-    = f.label :name_cont, '名前'
-    = f.search_field :name_cont
-  p
-    = f.label :prefecture_cont, '都道府県'
-    = f.search_field :prefecture_cont
-  p
-    = f.label :municipality_cont, '自治体'
-    = f.search_field :municipality_cont
-  = f.submit
+  table.user-search-table
+    tr
+      th= f.label :name_cont, '名前'
+      td= f.search_field :name_cont
+    tr
+      th= f.label :prefecture_eq, '都道府県'
+      td= f.collection_select :prefecture_eq, JpPrefecture::Prefecture.all, :name, :name
+    tr
+      th= f.label :municipality_cont, '自治体'
+      td= f.search_field :municipality_cont
+  = f.submit class: "btn btn-success"

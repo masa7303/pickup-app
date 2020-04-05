@@ -3,30 +3,37 @@
 - breadcrumb :user
 == render 'shared/breadcrumbs'
 
-h1 ユーザー一覧
+.row
+  .col-md-8
+    .card.bg-white.border-none.shadow-sm.mb-3
+      .card-header.font-weight-bold
+        h2 ユーザー一覧
+      .card-body
+        table.table.table-hover
+          thead.thead-default
+            tr.text-center
+              th= User.human_attribute_name(:name)
+              th= User.human_attribute_name(:prefecture)
+              th= User.human_attribute_name(:municipality)
+              th= User.human_attribute_name(:created_at)
+          tbody
+            - @users.each do |user|
+              tr.text-center
+                td= link_to user.name, [:admin, user]
+                td= user.prefecture
+                td= user.municipality
+                td= user.created_at.strftime("%Y-%m-%d")
+        = paginate @users
 
-=  link_to '新規登録', new_admin_user_path, class: 'btn btn-primary'
+  .col-md-4
+    .card.bg-white.border-none.shadow-sm.mb-3
+      .card-header.font-weight-bold
+        h2 検索
+      .card-body.text-center
+        == render 'users_search_form', q: @q
 
-.mb-3
-table.table.table-hover
-  thead.thead-default
-    tr
-      th= User.human_attribute_name(:name)
-      th= User.human_attribute_name(:email)
-      th= User.human_attribute_name(:created_at)
-      th= User.human_attribute_name(:updated_at)
-      th
-  tbody
-    - @users.each do |user|
-      tr
-        td= link_to user.name, [:admin, user]
-        td= user.email
-        td= user.created_at
-        td= user.updated_at
-        td
-          = link_to '編集', edit_admin_user_path(user), class: 'btn btn-primary mr-3'
-          = link_to '削除', [:admin, user], method: :delete, data: { confirm: "ユーザー「#{user.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
+    = link_to inquiry_path do
+      = image_tag('mail_banner.png', class: "ad-img mb-3")
 
-h1
-  | 検索
-= render 'users_search_form', q: @q
+    = link_to root_path do
+      = image_tag('line_banner.png', class: "ad-img")

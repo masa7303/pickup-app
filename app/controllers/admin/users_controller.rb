@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).page(params[:page]).reverse_order
+    @users = @q.result(distinct: true).page(params[:page]).per(10).reverse_order
   end
 
   def show
@@ -48,8 +48,9 @@ class Admin::UsersController < ApplicationController
   end
 
   def search
+    require 'jp_prefecture'
     @q = User.search(search_params)
-    @users = @q.result(distinct: true)
+    @users = @q.result(distinct: true).page(params[:page]).per(10).reverse_order
     render :index
   end
 
