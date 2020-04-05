@@ -1,1 +1,26 @@
-p test
+- breadcrumb :myreview
+== render 'shared/breadcrumbs'
+
+.row.pt-3.pb-5
+  .col-sm-8.order-md-2.mb-3
+    .card.bg-white.border-none.shadow-sm.mb-3
+      .card-header.font-weight-bold
+        h2 いいね！したお店
+      .card-body
+        - if @favorite_shops.empty?
+          h2.p-3.text-center レビューがありません
+        - else
+          .card-body.p-4
+            .row
+              - @favorite_shops.each do |shop|
+                .col-md-4.col-sm-6.pb-4
+                  = link_to shop_path(shop) do
+                    .card.h-100
+                      .card-img-top
+                        = image_tag shop.shop.image
+                      .card-body
+                        p= shop.shop.prefecture
+                        p.card-title.font-weight-bold= shop.shop.name
+
+  .col-sm-4.order-md-1
+    = render 'mypage/sidebar'
