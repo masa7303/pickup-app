@@ -2,7 +2,7 @@
   .card-header.font-weight-bold
     h2 新着口コミ
   .card-body
-    - @reviews.each do |review|
+    - @recent_reviews.each do |review|
       .col-md-12.mb-3
         = link_to review do
           .card.p-3.sidebar-newreview-box

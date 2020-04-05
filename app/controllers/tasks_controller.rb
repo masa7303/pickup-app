@@ -7,7 +7,7 @@ class TasksController < ApplicationController
   def index
     @q = Task.ransack(params[:q])
     @task = Task.new
-    @tasks = @q.result(distinct: true).page(params[:page]).per(10)
+    @tasks = @q.result(distinct: true).order(id: :desc).page(params[:page]).per(10)
 
     #タグ絞り込み
     if params[:tag_name]
@@ -38,7 +38,8 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to @task, notice: "業務スレッド「#{@task.name}」を登録しました"
     else
-      redirect_to tasks_path, alert: '業務スレッドの登録に失敗しました'
+      # redirect_to tasks_path, alert: '業務スレッドの登録に失敗しました'
+      render :new
     end
   end
 

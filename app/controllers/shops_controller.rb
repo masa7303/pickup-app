@@ -50,6 +50,6 @@ class ShopsController < ApplicationController
   end
 
   def recent_review
-    @reviews = Review.recent.includes([:shop]).limit(5)
+    @recent_reviews = Review.recent.includes([:shop]).limit(5)
   end
 end
