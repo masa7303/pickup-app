@@ -1,7 +1,7 @@
+= render partial: 'header'
+
 - breadcrumb :show_user
 == render 'shared/breadcrumbs'
-
-h1.page-ttl 「#{@user.name}」 さんのページ
 
 div.text-center
   = image_tag @user.image, size: "100x100",class: "img-circle pull-left profile-thumb rounded-circle mb-2"if @user.image.attached?
@@ -15,9 +15,6 @@ div.text-center
       tr
         th= User.human_attribute_name(:municipality)
         td= @user.municipality
-
-  = link_to '編集', edit_admin_user_path, class: 'btn btn-primary mr-3'
-  = link_to '削除', [:admin, @user], method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
 
 div.text-center.mt-5
   - unless current_user == @user
@@ -34,16 +31,28 @@ div.text-center.mt-5
   ul#tab-menu.clearfix
     li
       a.active href="#tab_followers"
-        div
+        .text-center
+          = image_tag('follower.png', class: "user-show-icon-img")
           strong.tab-menu_label フォロワー
-        div
+        .text-center
           strong= @user.followers.count
+          span 人
     li
       a href="#tab_followings"
-        div
+        .text-center
+          = image_tag('follow.png', class: "user-show-icon-img")
           strong.tab-menu_label フォロー
-        div
+        .text-center
           strong= @user.followings.count
+          span 人
+    li
+      a href="#tab_followings"
+        .text-center
+          = image_tag('review.png', class: "user-show-icon-img")
+          strong.tab-menu_label レビュー
+        .text-center
+          strong= @reviews.count
+          span 件
 
 #tab-contents.clearfix
   #tab_followers.tab
