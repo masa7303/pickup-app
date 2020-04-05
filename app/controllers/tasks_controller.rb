@@ -1,10 +1,15 @@
 class TasksController < ApplicationController
+  include Common
+
   before_action :login_required
+  before_action :tag_cloud, only: %i[index edit new search]
 
   def index
     @q = Task.ransack(params[:q])
+    @task = Task.new
     @tasks = @q.result(distinct: true)
 
+    #タグ絞り込み
     if params[:tag_name]
       @tasks = Task.tagged_with("#{params[:tag_name]}")
     end
@@ -61,5 +66,9 @@ class TasksController < ApplicationController
 
   def search_params
     params.require(:q).permit!
+  end
+
+  def tag_cloud
+    @tags = tags_desc
   end
 end

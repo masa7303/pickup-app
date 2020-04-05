@@ -18,8 +18,9 @@ ja:
         created_at: 登録日時
         updated_at: 更新日時
       task:
-        section: 担当
+        section: 担当部署
         name: タイトル
+        tag_list: タグ
         description: 内容
         created_at: 登録日時
       shop:

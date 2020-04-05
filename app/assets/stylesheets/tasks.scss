@@ -17,3 +17,33 @@
 .task-desc {
   font-size: 1.4rem;
 }
+
+.task-search-table {
+  width: 100%;
+}
+
+.task-search-table input {
+  width: 100%;
+}
+
+.tag-card a {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.new-task-table {
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.new-task-table tr {
+  height: 30px;
+}
+
+.new-task-table input {
+  width: 100%;
+}
