@@ -33,14 +33,14 @@
                   = shop.address
         .navigation
           = link_to_next_page @shops, 'Next Page'
-        = link_to '', class: "view-more-button" do
-          |  test
+        .text-center
+          button.btn-square-shadow もっと見る
           javascript:
             var infScroll = new InfiniteScroll( '#shop-card', { //大枠のセレクタ
               append: '#shop-card-contents', //読み込むボックスたちのセレクタ
               path: '.navigation a', //次ページへ飛ぶための「次へ」ボタンのセレクタ
               hideNav: '.navigation',
-              button: '.view-more-button', //「もっと見る」ボタンのセレクタ
+              button: '.btn-square-shadow', //「もっと見る」ボタンのセレクタ
               history: 'false', //読み込み後のURLを変更しない
               debug: false,
               scrollThreshold: false
