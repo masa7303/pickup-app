@@ -8,6 +8,7 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @reviews = Review.where(user_id: params[:id])
 
     @user_followings = @user.followings.with_attached_image.page(params[:page]).per(6)
     @user_followers = @user.followers.with_attached_image.page(params[:page]).per(6)
