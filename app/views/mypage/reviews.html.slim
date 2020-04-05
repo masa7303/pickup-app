@@ -4,7 +4,47 @@
 .row.pt-3.pb-5
   .col-sm-8.order-md-2.mb-3
     .card.bg-white.border-none.shadow-sm.mb-3
-      == render 'shared/reviews', reviews: @my_reviews
+      .card-header.font-weight-bold
+        h2 投稿したレビュー
+      .card-body
+        - if @my_reviews.empty?
+          h2.p-3.text-center レビューがありません
+        - else
+          .card-body.p-4
+            - @my_reviews.each do |review|
+              .row
+                .col-md-2.parent
+                  .child
+                    = image_tag review.user.image, size: "70x70"
+                    p.text-center= review.user.name
+
+                .col-md-10
+                  = link_to review_path(review) do
+                    .balloon1-left.d-flex.row
+                      .col-md-10
+                        .review-content
+                          h2.fs-22.font-weight-bold
+                            = review.title
+                          h6.m-1 評価 :#{review.rate}点
+                          span.m-1 id="star-rate-#{review.id}"
+                          javascript:
+                            $('#star-rate-#{review.id}').raty({
+                              size: 36,
+                              starOff: "#{asset_path('star-off.png')}",
+                              starOn: "#{asset_path('star-on.png')}",
+                              starHalf: "#{asset_path('star-half.png')}",
+                              half: true,
+                              readOnly: true,
+                              score: "#{review.rate}",
+                            });
+
+                          p.fs-12.mb-2= truncate(review.body, length: 40)
+                          p.mb-0= review.created_at.strftime("%Y年%m月%d日")
+
+                      .col-md-2
+                        .review-image
+                          - if review.review_image.attached?
+                            = image_tag review.review_image, size: "70x70"
 
   .col-sm-4.order-md-1
     = render 'mypage/sidebar'

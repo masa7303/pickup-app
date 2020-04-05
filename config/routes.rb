@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'static_pages/term'
-  get 'static_pages/privacy'
   root to: 'home#index'
 
   # ログインまわり

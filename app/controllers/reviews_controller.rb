@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[edit update destroy]
   before_action :login_required, except: [:index]
+  before_action :recent_review, only: %i[show edit]
 
   def index
     @q = Review.ransack(params[:q])
@@ -56,5 +57,9 @@ class ReviewsController < ApplicationController
 
   def search_params
     params[:q]&.permit(:title, :body, :rate)
+  end
+
+  def recent_review
+    @recent_reviews = Review.recent.includes([:shop]).limit(5)
   end
 end
