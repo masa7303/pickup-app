@@ -1,20 +1,9 @@
-.header_box
-  = image_tag('work-bgimg.png', class: "header_bg_img")
-  .header_ttl.text-center
-    h1.header_ttl_ja 業務スレッド
-    p.header_ttl_en work
+== render 'header'
 
 - breadcrumb :task
 == render 'shared/breadcrumbs'
 
-.row
-  .col-md-12
-    .card.bg-white.border-none.shadow-sm.mb-3
-      .card-header.font-weight-bold
-        h2 スレッドを作成する
-      .card-body
-        .text-center
-          == render partial: 'form', locals: { task: @task }
+== render 'new'
 
 .row
   .col-md-8
@@ -35,8 +24,7 @@
                 td.text-left= link_to task.name, task
                 td= task.created_at.strftime("%Y-%m-%d")
 
-        .navigation
-          = link_to_next_page @tasks, 'Next Page', class: "next"
+        = paginate @tasks
 
 
   .col-md-4

@@ -38,7 +38,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to @task, notice: "業務スレッド「#{@task.name}」を登録しました"
     else
-      render :new
+      redirect_to tasks_path, alert: '業務スレッドの登録に失敗しました'
     end
   end
 

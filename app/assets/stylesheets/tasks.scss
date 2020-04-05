@@ -44,8 +44,16 @@
   height: 30px;
 }
 
+.new-task-table th {
+  width: 50px;
+}
+
 .new-task-table input {
   width: 100%;
+}
+
+.new-task-td {
+  width: 80px;
 }
 
 .thread-index tr {

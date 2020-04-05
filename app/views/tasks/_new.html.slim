@@ -1,0 +1,8 @@
+.row
+  .col-md-12
+    .card.bg-white.border-none.shadow-sm.mb-3
+      .card-header.font-weight-bold
+        h2 スレッドを作成する
+      .card-body
+        .text-center
+          == render partial: 'form', locals: { task: @task }

@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params.merge(user_id: current_user.id, task_id: params[:task_id]))
 
     if @comment.save
-      redirect_to @task, notice: "業務スレッド「#{@task.name}」を登録しました"
+      redirect_to @task, notice: "コメントを登録しました"
     else
       render :new
     end
