@@ -3,6 +3,7 @@ class TasksController < ApplicationController
 
   before_action :login_required
   before_action :tag_cloud, only: %i[index edit new search]
+  before_action :guest_edit, only: %i[edit]
 
   def index
     @q = Task.ransack(params[:q])
