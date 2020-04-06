@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_post, except: [:index, :destroy]
-
+  before_action :guest_edit, only: %i[new create edit destroy]
+  
   def index
     @comments = Task.all
   end

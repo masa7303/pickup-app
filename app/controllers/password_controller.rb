@@ -1,5 +1,6 @@
 class PasswordController < ApplicationController
   before_action :login_required
+  before_action :guest_edit
 
   def update
     default_params = password_params

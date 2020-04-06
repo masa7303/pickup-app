@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
   # before_action :require_admin
+  before_action :guest_edit, only: %i[edit destroy]
 
   def index
     @q = User.ransack(params[:q])
