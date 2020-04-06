@@ -4,7 +4,7 @@ RSpec.describe 'Likes', type: :system do
 
   describe 'いいね！のテスト' do
     let(:user) {create(:user)}
-    let(:shop) {create(:shop)}
+    let(:shop) {create(:shop, user: user)}
     let(:like) {create(:like)}
 
     context 'ログインしているとき' do
