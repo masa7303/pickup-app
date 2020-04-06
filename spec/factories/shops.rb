@@ -6,5 +6,6 @@ FactoryBot.define do
     prefecture { 1 }
     address { '札幌市１丁目' }
     phone { '000-000-1234' }
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/ramen-01.jpg')) }
   end
 end
