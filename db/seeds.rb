@@ -144,31 +144,31 @@ user = User.find(1)
 user.image.attach(io: File.open('app/assets/images/icon-01.jpg'), filename: 'icon-01.jpg')
 
 user = User.find(2)
-user.image.attach(io: File.open('app/assets/images/icon-02.jpg'), filename: 'icon-01.jpg')
+user.image.attach(io: File.open('app/assets/images/icon-02.jpg'), filename: 'icon-02.jpg')
 
 user = User.find(3)
-user.image.attach(io: File.open('app/assets/images/icon-03.jpg'), filename: 'icon-01.jpg')
+user.image.attach(io: File.open('app/assets/images/icon-03.jpg'), filename: 'icon-03.jpg')
 
 user = User.find(4)
-user.image.attach(io: File.open('app/assets/images/icon-04.jpg'), filename: 'icon-01.jpg')
+user.image.attach(io: File.open('app/assets/images/icon-04.jpg'), filename: 'icon-04.jpg')
 
 user = User.find(5)
-user.image.attach(io: File.open('app/assets/images/icon-05.jpg'), filename: 'icon-01.jpg')
+user.image.attach(io: File.open('app/assets/images/icon-05.jpg'), filename: 'icon-05.jpg')
 
 user = User.find(6)
 user.image.attach(io: File.open('app/assets/images/icon-01.jpg'), filename: 'icon-01.jpg')
 
 user = User.find(7)
-user.image.attach(io: File.open('app/assets/images/icon-02.jpg'), filename: 'icon-01.jpg')
+user.image.attach(io: File.open('app/assets/images/icon-02.jpg'), filename: 'icon-02.jpg')
 
 user = User.find(8)
-user.image.attach(io: File.open('app/assets/images/icon-03.jpg'), filename: 'icon-01.jpg')
+user.image.attach(io: File.open('app/assets/images/icon-03.jpg'), filename: 'icon-03.jpg')
 
 user = User.find(9)
-user.image.attach(io: File.open('app/assets/images/icon-04.jpg'), filename: 'icon-01.jpg')
+user.image.attach(io: File.open('app/assets/images/icon-04.jpg'), filename: 'icon-04.jpg')
 
 user = User.find(10)
-user.image.attach(io: File.open('app/assets/images/icon-05.jpg'), filename: 'icon-01.jpg')
+user.image.attach(io: File.open('app/assets/images/icon-05.jpg'), filename: 'icon-05.jpg')
 
 Relationship.create!([
   {user_id: 1, follow_id: 2},
