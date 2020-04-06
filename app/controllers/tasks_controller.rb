@@ -36,7 +36,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params.merge(user_id: current_user.id))
 
     if @task.save
-      redirect_to @task, notice: "業務スレッド「#{@task.name}」を登録しました"
+      redirect_to @task, notice: "業務スレッド「#{@task.name}」を登録しました。"
     else
       # redirect_to tasks_path, alert: '業務スレッドの登録に失敗しました'
       render :new
@@ -52,7 +52,7 @@ class TasksController < ApplicationController
   def destroy
     task = current_user.tasks.find(params[:id])
     task.destroy
-    redirect_to tasks_url, notice: "業務スレッド「#{task.name}」を削除しました。"
+    redirect_to mypage_threads_path, notice: "業務スレッド「#{task.name}」を削除しました。"
   end
 
   def search

@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :user do
+    id { 1 }
     sequence(:name) { |n| "テスト#{n}ユーザー" }
     sequence(:email) {|n| "servant#{n}@example.com"}
     password {"password"}
@@ -10,10 +11,12 @@ FactoryBot.define do
   end
 
   trait :guest do
+    id { 2 }
     role { :guest }
   end
 
   trait :admin do
+    id { 3 }
     role { :admin }
     name { '管理者ユーザー' }
     email { 'admin@test.com' }
