@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
   # before_action :require_admin
+  before_action :guest_edit, only: %i[edit destroy]
 
   def index
     @q = User.ransack(params[:q])
@@ -10,8 +11,8 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     @reviews = Review.where(user_id: params[:id])
 
-    @user_followings = @user.followings.with_attached_image.page(params[:page]).per(6)
-    @user_followers = @user.followers.with_attached_image.page(params[:page]).per(6)
+    @user_followings = @user.followings.page(params[:page]).per(6)
+    @user_followers = @user.followers.page(params[:page]).per(6)
   end
 
   def new

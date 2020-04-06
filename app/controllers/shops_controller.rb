@@ -1,6 +1,7 @@
 class ShopsController < ApplicationController
   before_action :login_required, except: :new
   before_action :recent_review
+  before_action :guest_edit, only: %i[new edit]
 
   def index
     @q = Shop.ransack(params[:q])

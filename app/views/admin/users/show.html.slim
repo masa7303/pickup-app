@@ -4,7 +4,7 @@
 == render 'shared/breadcrumbs'
 
 div.text-center
-  = image_tag @user.image, size: "100x100",class: "img-circle pull-left profile-thumb rounded-circle mb-2"if @user.image.attached?
+  = image_tag @user.image_url, size: "100x100",class: "img-circle pull-left profile-thumb rounded-circle mb-2"
   p.user-name.mb-3= @user.name
 
   table.table.table-hover.width-30.mb-3

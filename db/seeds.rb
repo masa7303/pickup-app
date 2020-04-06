@@ -6,6 +6,7 @@ User.create!(
   password_confirmation: 'password',
   prefecture: '東京都',
   municipality: '渋谷区',
+  image: open("#{Rails.root}/app/assets/images/icon-01.jpg"),
   created_at: "2020-01-01 00:00:00",
   updated_at: "2020-01-01 00:00:00"
 )
@@ -18,6 +19,7 @@ User.create!(
   password_confirmation: 'password',
   prefecture: '富山県',
   municipality: '富山市',
+  image: open("#{Rails.root}/app/assets/images/icon-02.jpg"),
   created_at: "2020-01-01 00:00:00",
   updated_at: "2020-01-01 00:00:00"
 )
@@ -30,6 +32,7 @@ User.create!(
   password_confirmation: 'password',
   prefecture: '千葉県',
   municipality: 'いすみ市',
+  image: open("#{Rails.root}/app/assets/images/icon-03.jpg"),
   created_at: "2020-01-01 00:00:00",
   updated_at: "2020-01-01 00:00:00"
 )
@@ -42,6 +45,7 @@ User.create!(
   password_confirmation: 'password',
   prefecture: '沖縄県',
   municipality: '那覇市',
+  image: open("#{Rails.root}/app/assets/images/icon-04.jpg"),
   created_at: "2020-01-01 00:00:00",
   updated_at: "2020-01-01 00:00:00"
 )
@@ -54,6 +58,7 @@ User.create!(
   password_confirmation: 'password',
   prefecture: '青森県',
   municipality: '八戸市',
+  image: open("#{Rails.root}/app/assets/images/icon-05.jpg"),
   created_at: "2020-01-01 00:00:00",
   updated_at: "2020-01-01 00:00:00"
 )
@@ -66,6 +71,7 @@ User.create!(
   password_confirmation: 'password',
   prefecture: '北海道',
   municipality: '札幌市',
+  image: open("#{Rails.root}/app/assets/images/icon-01.jpg"),
   created_at: "2020-01-01 00:00:00",
   updated_at: "2020-01-01 00:00:00"
 )
@@ -78,6 +84,7 @@ User.create!(
   password_confirmation: 'password',
   prefecture: '石川県',
   municipality: '金沢市',
+  image: open("#{Rails.root}/app/assets/images/icon-02.jpg"),
   created_at: "2020-01-01 00:00:00",
   updated_at: "2020-01-01 00:00:00"
 )
@@ -90,6 +97,7 @@ User.create!(
   password_confirmation: 'password',
   prefecture: '宮城県',
   municipality: '仙台市',
+  image: open("#{Rails.root}/app/assets/images/icon-03.jpg"),
   created_at: "2020-01-01 00:00:00",
   updated_at: "2020-01-01 00:00:00"
 )
@@ -102,6 +110,7 @@ User.create!(
   password_confirmation: 'password',
   prefecture: '富山県',
   municipality: '魚津市',
+  image: open("#{Rails.root}/app/assets/images/icon-04.jpg"),
   created_at: "2020-01-01 00:00:00",
   updated_at: "2020-01-01 00:00:00"
 )
@@ -114,6 +123,7 @@ User.create!(
   password_confirmation: 'password',
   prefecture: '広島県',
   municipality: '広島市',
+  image: open("#{Rails.root}/app/assets/images/icon-05.jpg"),
   created_at: "2020-01-01 00:00:00",
   updated_at: "2020-01-01 00:00:00"
 )
@@ -125,6 +135,7 @@ User.create!(
   password: 'servant',
   password_confirmation: 'servant',
   role: :guest,
+  image: open("#{Rails.root}/app/assets/images/test-user-icon.png"),
   prefecture: '東京都',
   municipality: '新宿区',
 )
@@ -138,37 +149,8 @@ User.create!(
   role: :admin,
   prefecture: '東京都',
   municipality: '新宿区',
+  image: open("#{Rails.root}/app/assets/images/test-user-icon.png"),
 )
-
-user = User.find(1)
-user.image.attach(io: File.open('app/assets/images/icon-01.jpg'), filename: 'icon-01.jpg')
-
-user = User.find(2)
-user.image.attach(io: File.open('app/assets/images/icon-02.jpg'), filename: 'icon-01.jpg')
-
-user = User.find(3)
-user.image.attach(io: File.open('app/assets/images/icon-03.jpg'), filename: 'icon-01.jpg')
-
-user = User.find(4)
-user.image.attach(io: File.open('app/assets/images/icon-04.jpg'), filename: 'icon-01.jpg')
-
-user = User.find(5)
-user.image.attach(io: File.open('app/assets/images/icon-05.jpg'), filename: 'icon-01.jpg')
-
-user = User.find(6)
-user.image.attach(io: File.open('app/assets/images/icon-01.jpg'), filename: 'icon-01.jpg')
-
-user = User.find(7)
-user.image.attach(io: File.open('app/assets/images/icon-02.jpg'), filename: 'icon-01.jpg')
-
-user = User.find(8)
-user.image.attach(io: File.open('app/assets/images/icon-03.jpg'), filename: 'icon-01.jpg')
-
-user = User.find(9)
-user.image.attach(io: File.open('app/assets/images/icon-04.jpg'), filename: 'icon-01.jpg')
-
-user = User.find(10)
-user.image.attach(io: File.open('app/assets/images/icon-05.jpg'), filename: 'icon-01.jpg')
 
 Relationship.create!([
   {user_id: 1, follow_id: 2},

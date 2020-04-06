@@ -141,6 +141,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_025819) do
     t.string "prefecture", null: false
     t.string "municipality", null: false
     t.integer "role", default: 0, null: false
+    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
