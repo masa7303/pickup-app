@@ -16,7 +16,8 @@ nav.navbar.navbar-dark.bg-dark
             span ユーザー一覧
         li.navbar-brand.dropdown
           a.dropdown-toggle data-toggle="dropdown" href="#"
-            = image_tag current_user.decorate.image_url, size: '25x25', class: 'rounded-circle mr-3'
+            - if current_user.image.present?
+              = image_tag current_user.image_url, size: '25x25', class: 'rounded-circle mr-3'
             = current_user.name
           ul.dropdown-menu.text-center
             li.mb-2= link_to 'マイページ', dashboard_index_path

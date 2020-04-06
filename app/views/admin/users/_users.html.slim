@@ -2,7 +2,7 @@ div.row
   - users.each do |user|
     div.card.container.shadow-sm.calc-width-30
       div.user_head.mt-4.mb-4.text-center
-        = image_tag user.image, size: "100x100",class: "img-circle pull-left profile-thumb rounded-circle mb-2"if user.image.attached?
+        = image_tag user.image_url, size: "100x100",class: "img-circle pull-left profile-thumb rounded-circle mb-2"
         = link_to admin_user_path(user), class:"row"
           h3.mr-auto.ml-auto=  user.name
       .row

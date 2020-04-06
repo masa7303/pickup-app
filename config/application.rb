@@ -22,5 +22,7 @@ module PickupApp
 
     # 日本時間表示
     config.time_zone = 'Tokyo'
+
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
   end
 end
