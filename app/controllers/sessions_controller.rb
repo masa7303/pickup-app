@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: session_params[:email])
+    user = login(params[:email], params[:password])
 
     if user
       session[:user_id] = user.id
@@ -17,11 +17,5 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     redirect_to root_path, notice: 'ログアウトしました。'
-  end
-
-  private
-
-  def session_params
-    params.require(:session).permit(:email, :password)
   end
 end
