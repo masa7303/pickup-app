@@ -116,3 +116,6 @@ gem 'dotenv-rails'
 
 # 都道府県データ
 gem 'jp_prefecture'
+
+# ユーザー登録の際のデフォルト画像
+gem 'carrierwave'
