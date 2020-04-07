@@ -36,3 +36,6 @@
             .d-inline-block
               = link_to admin_user_path(@review.user) do
                 h2.font-weight-bold.ml-2= @review.user.name
+
+  .col-md-4
+    == render 'shared/sidemenu'
