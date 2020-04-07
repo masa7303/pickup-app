@@ -1,14 +1,14 @@
 - reviews.each do |review|
   .row
-    .col-md-2.parent
+    .col-md-2.parent.sp-display-none
       .child
         = image_tag review.user.image_url, size: "70x70"
         p.text-center= review.user.name
 
-    .col-md-10
+    .col-md-10.col-sm-12.col-12
       = link_to review_path(review) do
         .balloon1-left.d-flex.row
-          .col-md-10
+          .col-md-10.col-sm-12.col-12
             .review-content
               h2.fs-22.font-weight-bold
                 h2.mb-3 #{review.shop.name}(#{review.shop.prefecture})
@@ -27,4 +27,4 @@
                 });
 
               p.fs-12.mb-2= truncate(review.body, length: 40)
-              p.mb-0= review.created_at.strftime("%Y年%m月%d日")
+              p.mb-0.review-create-time= review.created_at.strftime("%Y年%m月%d日")

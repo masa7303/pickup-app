@@ -68,6 +68,11 @@ label {
   width: 30%;
   margin: 0 auto;
 }
+@media screen and (max-width: 768px) {
+  .width-30 {
+    width: 70%;
+  }
+}
 
 .text-white {
   color: #fff;
@@ -112,6 +117,14 @@ label {
 .breadcrumbs span {
   margin-right: 8px;
   margin-left: 8px;
+}
+@media screen and (max-width: 768px) {
+  .breadcrumbs a,
+  .breadcrumbs span {
+    font-size: 0.7rem;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
 }
 
 a:hover {
@@ -176,6 +189,12 @@ a:hover {
 @media screen and (max-width: 768px) {
   .header_ttl_en {
     font-size: 0.2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .line-banner {
+    margin-bottom: 40px;
   }
 }
 

@@ -52,8 +52,13 @@
   border-top: none;
 }
 
-#tab-contents p{
+#tab-contents p {
   line-height: 2.5;
+}
+@media screen and (max-width: 768px) {
+  #tab-contents p {
+    line-height: 1.8rem;
+  }
 }
 
 .calc-width-30 {
@@ -84,4 +89,28 @@
 
 .tab-menu_label {
   display: block;
+}
+
+
+.user-detail-card {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .user-card {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sp-display-none {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .review-create-time {
+    font-size: 0.7rem;
+  }
 }
