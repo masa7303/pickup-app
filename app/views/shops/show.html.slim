@@ -13,7 +13,7 @@
       h1.text-center.mb-30= @shop.name
 
       .text-center
-        =image_tag @shop.image, size: "500x500"
+        =image_tag @shop.image, class: "shop-show-img"
 
       table.table.table-bordered.mt-30.shop-table
         tr
@@ -28,8 +28,11 @@
 
     == render 'shared/reviews', reviews: @reviews
 
-    h2.text-center 口コミ投稿する
-    == render 'reviews/form', shop: @shop, review: @review
+    .card.bg-white.shadow-sm.mb-3
+      .card-header.font-weight-bold
+        h2 レビューを投稿する
+      .card-body
+        == render 'reviews/form', shop: @shop, review: @review
 
   .col-md-4
     == render 'shared/sidemenu'

@@ -9,6 +9,11 @@
   width: 500px;
   margin: 0 auto;
 }
+@media screen and (max-width: 768px) {
+  .shop-table {
+    width: 100%;
+  }
+}
 
 .button-img {
   width: 100%;
@@ -57,4 +62,9 @@
   transform: translateY(4px);/*下に動く*/
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
   border-bottom: none;
+}
+
+.shop-show-img {
+  width: 100%;
+  height: auto;
 }

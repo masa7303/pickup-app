@@ -156,6 +156,18 @@ a:hover {
   margin-right: 5px;
 }
 
+.dropdown-menu.show {
+  width: 100%;
+}
+
+.dropdown-menu.show li {
+  margin-left: 0;
+}
+
+.flex li {
+  margin-left: 0;
+}
+
 // ヘッダー画像
 .header_bg_img {
   width: 100%;

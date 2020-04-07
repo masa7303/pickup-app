@@ -1,41 +1,42 @@
-.card-header.font-weight-bold
-  このお店のレビュー
-.card.bg-white.border-none.shadow-sm.mb-3
-  - if reviews.empty?
-    h2.p-3.text-center レビューがありません
-  - else
-    .card-body.p-4
-      - reviews.each do |review|
-        .row.mb-5
-          .col-md-2.parent
-            .child
-              = image_tag review.user.image_url, size: "70x70"
-              p.text-center= review.user.name
+.card.bg-white.shadow-sm.mb-3
+  .card-header.font-weight-bold
+    h2 このお店のレビュー
+  .card-body
+    - if reviews.empty?
+      h2.p-3.text-center レビューがありません
+    - else
+      .card-body.p-4
+        - reviews.each do |review|
+          .row.mb-5
+            .col-md-2.parent
+              .child
+                = image_tag review.user.image_url, size: "70x70"
+                p.text-center= review.user.name
 
-          .col-md-10
-            = link_to review_path(review) do
-              .balloon1-left.d-flex.row
-                .col-md-10
-                  .review-content
-                    h2.fs-22.font-weight-bold
-                      = review.title
-                    h6.m-1 評価 :#{review.rate}点
-                    span.m-1 id="star-rate-#{review.id}"
-                    javascript:
-                      $('#star-rate-#{review.id}').raty({
-                        size: 36,
-                        starOff: "#{asset_path('star-off.png')}",
-                        starOn: "#{asset_path('star-on.png')}",
-                        starHalf: "#{asset_path('star-half.png')}",
-                        half: true,
-                        readOnly: true,
-                        score: "#{review.rate}",
-                      });
+            .col-md-10
+              = link_to review_path(review) do
+                .balloon1-left.d-flex.row
+                  .col-md-10
+                    .review-content
+                      h2.fs-22.font-weight-bold
+                        = review.title
+                      h6.m-1 評価 :#{review.rate}点
+                      span.m-1 id="star-rate-#{review.id}"
+                      javascript:
+                        $('#star-rate-#{review.id}').raty({
+                          size: 36,
+                          starOff: "#{asset_path('star-off.png')}",
+                          starOn: "#{asset_path('star-on.png')}",
+                          starHalf: "#{asset_path('star-half.png')}",
+                          half: true,
+                          readOnly: true,
+                          score: "#{review.rate}",
+                        });
 
-                    p.fs-12.mb-2= truncate(review.body, length: 40)
-                    p.mb-0= review.created_at.strftime("%Y年%m月%d日")
+                      p.fs-12.mb-2= truncate(review.body, length: 40)
+                      p.mb-0= review.created_at.strftime("%Y年%m月%d日")
 
-                .col-md-2
-                  .review-image
-                    - if review.review_image.attached?
-                      = image_tag review.review_image, size: "70x70"
+                  .col-md-2
+                    .review-image
+                      - if review.review_image.attached?
+                        = image_tag review.review_image, size: "70x70"
