@@ -1,15 +1,39 @@
-.header_box
-  = image_tag('shop-bgimg.png', class: "header_bg_img")
-  .header_ttl.text-center
-    h1.header_ttl_ja こうむいんch
-    p.header_ttl_en TOP
+= image_tag('top-view.png', class: "top-view-img")
 
-.row
-  .col-md-6
-    = link_to shops_path do
-      .text-center
-        = image_tag('top-food-banner.png', class: "top-banner-btn")
-  .col-md-6
-    = link_to tasks_path do
-      .text-center
-        = image_tag('top-work-banner.png', class: "top-banner-btn")
+section.top-bg
+  .container
+    h2.toppage-ttl 「こうむいんch」とは？
+
+    .row
+      .col-md-4.col-sm-12.col-12.top-three-box
+        .text-center
+          h2.page-sec-ttl FOOD
+          = image_tag('top-food-icon.png', class: "top-view-img")
+        p.top-txt
+          | 地域で働く公務員だからこそ知っている「地元の美味しいお店」。観光誌
+            やグルメサイトには載っていないディープなお店の情報を知ることができます。
+      .col-md-4.col-sm-12.col-12.top-three-box
+        .text-center
+          h2.page-sec-ttl INFO
+          = image_tag('top-task-icon.png', class: "top-view-img")
+        p.top-txt
+          | 同じ内容の仕事でも、自治体が違えば仕事の進め方も違います。
+            業務に関するスレッドをとおして他自治体の業務に関する情報を効率的に集
+            めることができます。
+      .col-md-4.col-sm-12.col-12.top-three-box
+        .text-center
+          h2.page-sec-ttl FOLLOW
+          = image_tag('top-tunagaru-icon.png', class: "top-view-img")
+        p.top-txt
+          | より効率的に情報交換を行ったり交流を深めたりするために、「こうむいん
+            ch」に登録している人をフォローしてつながることができます。
+
+    .row.top-img-box
+      .col-md-6.col-sm-12.col-12
+        = link_to shops_path do
+          .text-center
+            = image_tag('top-food-banner.png', class: "top-banner-btn")
+      .col-md-6.col-sm-12.col-12
+        = link_to tasks_path do
+          .text-center
+            = image_tag('top-work-banner.png', class: "top-banner-btn")
