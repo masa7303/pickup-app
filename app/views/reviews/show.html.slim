@@ -32,7 +32,7 @@
         .card.bg-white.border-none.shadow-sm
           .card-body.p-4.text-center
             p この口コミを投稿した人
-            = image_tag @review.user.image, size: "50x50"
+            = image_tag @review.user.image_url, size: "50x50"
             .d-inline-block
               = link_to admin_user_path(@review.user) do
                 h2.font-weight-bold.ml-2= @review.user.name
