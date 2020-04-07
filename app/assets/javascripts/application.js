@@ -18,6 +18,52 @@
 //= require bootstrap-sprockets
 //= require jquery_raty.js
 
+$(function() {
+  //ハンバーガーメニュー（三本線から×マークへ）
+  $('.humburger_menu').click(function() {
+  $('.bar1, .bar2, .bar3').toggleClass('open');
+  })
+
+  //ハンバーガーメニューをクリックしたら横からスライド
+  $('.humburger_menu').on('click',function(){
+    if($(this).hasClass('active')){
+      $(this).removeClass('active');
+      $('nav').removeClass('open');
+    } else {
+      $(this).addClass('active');
+      $('nav').addClass('open');
+    }
+  });
+});
+
+$(function(){
+  $('.animation').css('visibility','hidden');
+  $(window).scroll(function(){
+   var windowHeight = jQuery(window).height(),
+       topWindow = jQuery(window).scrollTop();
+   $('.animation').each(function(){
+    var targetPosition = jQuery(this).offset().top;
+    if(topWindow > targetPosition - windowHeight + 100){
+     $(this).addClass("fadeInDown");
+    }
+   });
+  });
+});
+
+//ヘッダースクロールイベント
+$(function(){
+  var header = $('.humburger_menu_bg')
+  header_offset = header.offset();
+  header_height = header.height();
+  $(window).scroll(function () {
+    if($(window).scrollTop() > header_offset.top + header_height) {
+      header.addClass('scroll');
+    }else {
+      header.removeClass('scroll');
+    }
+  });
+});
+
 
 (function($) {
   'use strict';
