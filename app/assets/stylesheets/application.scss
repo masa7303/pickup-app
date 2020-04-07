@@ -35,10 +35,8 @@ body {
   min-height: 100vh;
 }
 
-@media screen and (min-width: 769px) {
-  main {
-    margin-bottom: 30px;
-  }
+main {
+  margin-bottom: 30px;
 }
 
 footer {
@@ -210,11 +208,11 @@ a:hover {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .line-banner {
-    margin-bottom: 40px;
-  }
-}
+// @media screen and (max-width: 768px) {
+//   .line-banner {
+//     margin-bottom: 40px;
+//   }
+// }
 
 .ad-img {
   width: 100%;
