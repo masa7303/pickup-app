@@ -6,6 +6,11 @@ table.inquiry-table {
   border-collapse: collapse;
   margin: 0 auto;
 }
+@media screen and (max-width: 768px) {
+  table.inquiry-table {
+    width: 100%;
+  }
+}
 
 table.inquiry-table input,
 table.inquiry-table textarea {
@@ -27,6 +32,11 @@ table.inquiry-table tr {
 table.inquiry-table th.textarea-ttl {
   line-height: 73px;
 }
+@media screen and (max-width: 768px) {
+  table.inquiry-table th.textarea-ttl {
+    line-height: 20px;
+  }
+}
 
 table.inquiry-table tr:last-child{
   border-bottom: none;
@@ -43,6 +53,16 @@ table.inquiry-table th {
   line-height: 20px;
   font-size: 1.2rem;
 }
+@media screen and (max-width: 768px) {
+  table.inquiry-table th {
+    display: block;
+    width: 100%;
+  }
+  table.inquiry-table td {
+    display: block;
+    width: 100%!important;
+  }
+}
 
 table.inquiry-table th:after{
   display: block;
@@ -55,6 +75,11 @@ table.inquiry-table th:after{
   border-left: 10px solid #52c2d0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
+}
+@media screen and (max-width: 768px) {
+  table.inquiry-table th:after{
+    display: none;
+  }
 }
 
 table.inquiry-table td {
