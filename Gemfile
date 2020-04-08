@@ -123,3 +123,6 @@ gem 'jp_prefecture'
 
 # ユーザー登録の際のデフォルト画像
 gem 'carrierwave'
+
+# AWSコンパイル用
+gem 'mini_racer'
