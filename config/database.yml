@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: servant_app_production
-  username: servant_app
-  password: <%= ENV['PICKUP-APP_DATABASE_PASSWORD'] %>
+  username: root
+  password:
