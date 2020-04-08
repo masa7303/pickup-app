@@ -140,17 +140,17 @@ User.create!(
   municipality: '新宿区',
 )
 
-User.create!(
-  id: 12,
-  name: '管理者アカウント',
-  email: Rails.application.credentials.user[:admin_user_email] ,
-  password: Rails.application.credentials.user[:admin_user_password],
-  password_confirmation: Rails.application.credentials.user[:admin_user_password],
-  role: :admin,
-  prefecture: '東京都',
-  municipality: '新宿区',
-  image: open("#{Rails.root}/app/assets/images/test-user-icon.png"),
-)
+# User.create!(
+#   id: 12,
+#   name: '管理者アカウント',
+#   email: Rails.application.credentials.user[:admin_user_email],
+#   password: Rails.application.credentials.user[:admin_user_password],
+#   password_confirmation: Rails.application.credentials.user[:admin_user_password],
+#   role: :admin,
+#   prefecture: '東京都',
+#   municipality: '新宿区',
+#   image: open("#{Rails.root}/app/assets/images/test-user-icon.png"),
+# )
 
 Relationship.create!([
   {user_id: 1, follow_id: 2},
