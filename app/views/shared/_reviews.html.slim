@@ -8,12 +8,12 @@
       .card-body.p-4
         - reviews.each do |review|
           .row.mb-5
-            .col-md-2.parent
+            .col-md-2.col-sm-12.col-12.parent
               .child
                 = image_tag review.user.image_url, size: "70x70"
                 p.text-center= review.user.name
 
-            .col-md-10
+            .col-md-10.col-sm-12.col-12
               = link_to review_path(review) do
                 .balloon1-left.d-flex.row
                   .col-md-10

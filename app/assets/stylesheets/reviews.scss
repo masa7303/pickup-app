@@ -16,6 +16,11 @@
   font-size: 16px;
   background: #e0edff;
 }
+@media screen and (max-width: 768px) {
+  .balloon1-left {
+    margin: 20px 0;
+  }
+}
 
 .balloon1-left:before {
   content: "";
@@ -25,6 +30,15 @@
   margin-top: -15px;
   border: 15px solid transparent;
   border-right: 15px solid #e0edff;
+}
+@media screen and (max-width: 768px) {
+  .balloon1-left:before {
+    top: -15px;
+    left: 50%;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-bottom: 15px solid #e0edff;
+  }
 }
 
 .balloon1-left p {
@@ -41,6 +55,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+}
+@media screen and (max-width: 768px) {
+  .child {
+    position: relative;
+    text-align: center;
+  }
 }
 
 .child p {
