@@ -1,6 +1,6 @@
 ## サービス概要
 
-![こうむいんch トップ]
+![トップページ](https://user-images.githubusercontent.com/50639339/78937645-cfc63c80-7aeb-11ea-851d-ddfd778d7cca.png)
 
 「こうむいんch」を一言でいうと、「公務員が地域のグルメと業務内容について情報交換するためのアプリケーション」です。
 
@@ -34,6 +34,11 @@
 - Rails 5.2.4
 
 
+# ER図
+
+![ER図](https://user-images.githubusercontent.com/50639339/78937894-35b2c400-7aec-11ea-875e-be624194de80.png)
+
+
 # 各種機能＆導入技術
 
 - データベース（MySQL）
@@ -54,3 +59,36 @@
 - 都道府県データ（jp_prefecture）
 
 **GitHub上では「実装する機能をissueでリストアップ -> branchを切る -> 開発 -> 実装が完了したところでpush -> pull requestを送信する -> merge」といったチーム開発を意識した作業工程で進めました。**
+
+
+# トップページ
+
+[top.pdf](https://github.com/masa7303/servant_app/files/4458531/top.pdf)
+
+
+# ログインページ
+
+[login.pdf](https://github.com/masa7303/servant_app/files/4458535/login.pdf)
+
+
+# 店舗ページ
+
+[shop.pdf](https://github.com/masa7303/servant_app/files/4458539/shop.pdf)
+[shop-show.pdf](https://github.com/masa7303/servant_app/files/4458543/shop-show.pdf)
+[review.pdf](https://github.com/masa7303/servant_app/files/4458544/review.pdf)
+
+
+# 業務スレッドページ
+
+[task.pdf](https://github.com/masa7303/servant_app/files/4458546/task.pdf)
+[task-show.pdf](https://github.com/masa7303/servant_app/files/4458548/task-show.pdf)
+
+
+# ユーザー一覧・詳細ページ
+
+[user.pdf](https://github.com/masa7303/servant_app/files/4458551/user.pdf)
+[user-show.pdf](https://github.com/masa7303/servant_app/files/4458557/user-show.pdf)
+
+# マイページ
+
+[mypage.pdf](https://github.com/masa7303/servant_app/files/4458563/mypage.pdf)
