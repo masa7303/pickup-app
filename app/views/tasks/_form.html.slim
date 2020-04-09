@@ -1,24 +1,22 @@
 = form_with model: task, local: true do |f|
   .text-left
     == render 'shared/error_messages', object: f.object
-  table.new-task-table
-    tr
-      th
-        span.badge.badge-danger.m-2 必須
-      td.text-left.new-task-td= f.label :section
-      td= f.select :section, [['人事', '人事'], ['行政', '行政'], ['管財', '管財'], ['秘書', '秘書'], ['情報', '情報'], ['企画', '企画'], ['広報', '広報'], ['税務', '税務'], ['住民', '住民'], ['医療', '医療'], ['福祉', '福祉'], ['障害', '障害'], ['児童', '児童'], ['介護', '介護'], ['土木', '土木'], ['用地', '用地'], ['産業', '産業'], ['観光', '観光'], ['教育', '教育'], ['水道', '水道']], {}, id: 'task_section'
-    tr
-      th
-        span.badge.badge-danger.m-2 必須
-      td.text-left.new-task-td= f.label :name
-      td= f.text_field :name, id: 'task_name'
-    tr
-      th
-      td.text-left.new-task-td= f.label :tag_list
-      td= f.text_field :tag_list, value: @task.tag_list.join(','), placeholder: "複数ある場合は「,」で区切って入力してください"
-    tr
-      th
-        span.badge.badge-danger.m-2 必須
-      td.text-left.new-task-td= f.label :description
-      td= f.text_area :description, rows: 5, class: 'form-control', id: 'task_description'
-  = f.submit nil, class: 'btn btn-primary'
+  .new-task-form
+    .form-group
+      span.badge.badge-danger.m-2 必須
+      = f.label :section
+      = f.select :section, [['人事', '人事'], ['行政', '行政'], ['管財', '管財'], ['秘書', '秘書'], ['情報', '情報'], ['企画', '企画'], ['広報', '広報'], ['税務', '税務'], ['住民', '住民'], ['医療', '医療'], ['福祉', '福祉'], ['障害', '障害'], ['児童', '児童'], ['介護', '介護'], ['土木', '土木'], ['用地', '用地'], ['産業', '産業'], ['観光', '観光'], ['教育', '教育'], ['水道', '水道']], {}, id: 'task_section'
+    .form-group
+      span.badge.badge-danger.m-2 必須
+      = f.label :name
+      = f.text_field :name, id: 'task_name'
+    .form-group
+      span.badge.badge-danger.m-2 必須
+      = f.label :tag_list
+      = f.text_field :tag_list, value: @task.tag_list.join(','), placeholder: "複数ある場合は「,」で区切って入力してください"
+    .form-group
+      span.badge.badge-danger.m-2 必須
+      = f.label :description
+      = f.text_area :description, rows: 5, class: 'form-control', id: 'task_description'
+    .text-center
+      = f.submit nil, class: 'btn btn-primary'
