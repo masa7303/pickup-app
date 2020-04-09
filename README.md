@@ -68,27 +68,27 @@
 
 # ログインページ
 
-![login.pdf](https://github.com/masa7303/servant_app/files/4458535/login.pdf)
+![login](https://user-images.githubusercontent.com/50639339/78939526-46b10480-7aef-11ea-8247-3636f21ba631.png)
 
 
 # 店舗ページ
 
-![shop.pdf](https://github.com/masa7303/servant_app/files/4458539/shop.pdf)
-![shop-show.pdf](https://github.com/masa7303/servant_app/files/4458543/shop-show.pdf)
-![review.pdf](https://github.com/masa7303/servant_app/files/4458544/review.pdf)
+![shop](https://user-images.githubusercontent.com/50639339/78939686-91cb1780-7aef-11ea-91bc-f3225c7f1c81.png)
+![shop-show](https://user-images.githubusercontent.com/50639339/78939846-d060d200-7aef-11ea-9395-18dd9359121a.png)
+![review](https://user-images.githubusercontent.com/50639339/78939939-fd14e980-7aef-11ea-8141-911bfcd11c29.png)
 
 
 # 業務スレッドページ
 
-![task.pdf](https://github.com/masa7303/servant_app/files/4458546/task.pdf)
-![task-show.pdf](https://github.com/masa7303/servant_app/files/4458548/task-show.pdf)
+![task](https://user-images.githubusercontent.com/50639339/78940001-1cac1200-7af0-11ea-99bc-69913b4785c2.png)
+![task-show](https://user-images.githubusercontent.com/50639339/78940070-3a797700-7af0-11ea-946e-a79b95ce4794.png)
 
 
 # ユーザー一覧・詳細ページ
 
-![user.pdf](https://github.com/masa7303/servant_app/files/4458551/user.pdf)
-![user-show.pdf](https://github.com/masa7303/servant_app/files/4458557/user-show.pdf)
+![user](https://user-images.githubusercontent.com/50639339/78940133-51b86480-7af0-11ea-8c6a-994f6097e261.png)
+![user-show](https://user-images.githubusercontent.com/50639339/78940251-81676c80-7af0-11ea-9d3d-fb677ee5e55d.png)
 
 # マイページ
 
-![mypage.pdf](https://github.com/masa7303/servant_app/files/4458563/mypage.pdf)
+![mypage](https://user-images.githubusercontent.com/50639339/78940277-8c220180-7af0-11ea-8cda-690c63a2b159.png)
