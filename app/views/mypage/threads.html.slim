@@ -10,11 +10,11 @@
         - if @my_threads.empty?
           h2.p-3.text-center スレッドがありません
         - else
-          .card-body.p-4
-            table.table.table-hover.text-center.thread-index
+          .card-body
+            table.table.table-hover.text-center.thread-index.mypage-task-table
               thead.thead-default
                 tr
-                  th= Task.human_attribute_name(:section)
+                  th.first= Task.human_attribute_name(:section)
                   th= Task.human_attribute_name(:name)
                   th= Task.human_attribute_name(:created_at)
                   th
@@ -24,7 +24,7 @@
                     td= thread.section
                     td= link_to thread.name, thread
                     td= thread.created_at.strftime("%Y-%m-%d")
-                    td
+                    td.mypage-task-ed-del
                       = link_to edit_task_path(thread), class: "btn btn-primary btn-sm mr-1" do
                         i.fas.fa-edit 編集
                       = link_to task_path(thread), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger btn-sm ml-1" do

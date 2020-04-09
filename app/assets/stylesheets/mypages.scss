@@ -5,6 +5,11 @@
   width: 50%;
   margin: 0 auto;
 }
+@media screen and (max-width: 768px) {
+  .dashboard-table {
+    width: 80%;
+  }
+}
 
 .dashboard-table tr {
   line-height: 20px;
@@ -51,4 +56,20 @@
 
 .delete-icon {
   vertical-align: middle;
+}
+
+@media screen and (max-width: 768px) {
+  .mypage-task-table th.first {
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mypage-task-table td {
+    line-height: 1.5rem;
+  }
+}
+
+.mypage-task-ed-del {
+  display: flex;
 }
