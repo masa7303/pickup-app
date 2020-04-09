@@ -18,7 +18,7 @@
           = image_tag @review.review_image, class: "review-show-img"
 
         h2.text-center.mt-3.mb-2.bg-secondary.pt-3.pb-3.text-white= @review.title
-        p.fs-12.mb-2= @review.body
+        p.review-show-body.mb-2= @review.body
         p.mb-0.text-right= @review.created_at.strftime("%Y年%m月%d日")
 
         - if logged_in?
