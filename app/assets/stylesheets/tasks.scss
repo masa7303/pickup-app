@@ -91,7 +91,8 @@
 .new-task-form label {
 }
 
-.new-task-form input {
+.new-task-form input#task_name,
+.new-task-form input#task_tag_list {
   width: 100%;
   border: 1px solid #ced4da;
 }
