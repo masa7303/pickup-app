@@ -12,7 +12,7 @@
         - else
           .card-body.p-4
             - @my_reviews.each do |review|
-              .row
+              .row.mb-4
                 .col-md-2.parent
                   .child
                     = image_tag review.user.image_url, size: "70x70"

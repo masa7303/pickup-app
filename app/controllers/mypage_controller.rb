@@ -1,6 +1,6 @@
 class MypageController < ApplicationController
   def reviews
-    @my_reviews = current_user.reviews.page(params[:page]).order(created_at: :desc)
+    @my_reviews = current_user.reviews.includes([:review_image_attachment]).page(params[:page]).order(created_at: :desc)
   end
 
   def shops
