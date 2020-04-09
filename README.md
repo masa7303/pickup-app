@@ -1,24 +1,56 @@
-# README
+## サービス概要
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![こうむいんch トップ]
 
-Things you may want to cover:
+「こうむいんch」を一言でいうと、「公務員が地域のグルメと業務内容について情報交換するためのアプリケーション」です。
 
-* Ruby version
+公務員として働いていた際、他自治体も同じ業務内容を行なっているにも関わらず、効率的な情報交換が難しいという悩みがありました。
 
-* System dependencies
+「こうむいんch」は、そうした業務の内容についての悩みを共有できるとともに、他自治体の職員同士がつながることができます。
 
-* Configuration
+また地域で働く公務員は、それぞれの地域にある美味しいグルメにも精通しています。
 
-* Database creation
+観光誌やテレビなどからは拾えない、ディープな飲食店の情報交換ができる機能も追加しました。
 
-* Database initialization
 
-* How to run the test suite
+# URL
 
-* Services (job queues, cache servers, search engines, etc.)
+[https://koumuinch.work/](https://koumuinch.work/)
 
-* Deployment instructions
+```HTML
+テストユーザーアカウント
 
-* ...
+メールアドレス：testuser@test.com
+パスワード   ：servant
+```
+
+※ページ内には「簡単ログイン（テストユーザーとしてワンクリックでログイン可能な機能）」も実装してありますので、お手数であればそちらをご利用ください。
+なおテストユーザーは一部機能を制限させていただいておりますので、ご了承ください。
+
+
+# 開発環境
+
+- Ruby 2.5.1
+- Rails 5.2.4
+
+
+# 各種機能＆導入技術
+
+- データベース（MySQL）
+- デプロイ（AWS）
+- テスト（Rspec、Capybara、factory_bot）
+- viewファイル（slim-rails、html2slim、slim）
+- CSSフレームワーク（Bootstrap4）
+- コードチェック（bullet）
+- ユーザー登録＆ログイン（sorcery）
+- 画像アップロード（carrierwave）
+- レビュー（jquery.raty）
+- いいね、ブックマーク（Ajax）
+- タグ付け（acts-as-taggable-on）
+- ページネーション（kaminari）
+- メールアクティベーション（ActionMailer）
+- 検索（ransack）
+- パンくずリスト（gretel）
+- 都道府県データ（jp_prefecture）
+
+**GitHub上では「実装する機能をissueでリストアップ -> branchを切る -> 開発 -> 実装が完了したところでpush -> pull requestを送信する -> merge」といったチーム開発を意識した作業工程で進めました。**
