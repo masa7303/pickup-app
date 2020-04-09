@@ -30,6 +30,11 @@ crumb :show_user do
   parent :user
 end
 
+crumb :edit_user do
+  link "ユーザーの編集", edit_admin_user_path
+  parent :user
+end
+
 crumb :shop do
   link "オススメのお店", shops_path
 end
