@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: %i[edit update destroy]
   before_action :login_required, except: [:index]
   before_action :recent_review, only: %i[show edit]
-  before_action :guest_edit, only: %i[edit destroy]
+  before_action :guest_edit, only: %i[create edit destroy]
 
   def index
     @q = Review.ransack(params[:q])
