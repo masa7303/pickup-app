@@ -28,7 +28,7 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params.merge(user_id: current_user.id))
 
     if @shop.save
-      redirect_to @shop, notice: "業務スレッド「#{@shop.name}」を登録しました"
+      redirect_to @shop, notice: "「#{@shop.name}」を登録しました"
     else
       # redirect_to new_shop_path, flash: { error: @shop.errors.full_messages }
       render :new

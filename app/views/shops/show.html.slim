@@ -12,8 +12,9 @@
     .card.bg-white.border-none.shadow-sm.mb-3.p-4
       h1.text-center.mb-30= @shop.name
 
-      .text-center
-        =image_tag @shop.image, class: "shop-show-img"
+      - if @shop.image.attached?
+        .text-center
+          =image_tag @shop.image, class: "shop-show-img"
 
       table.table.table-bordered.mt-30.shop-table
         tr
