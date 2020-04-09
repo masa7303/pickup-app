@@ -6,13 +6,21 @@ div.task-ttl-box
   p.task-tag= render 'tasks/tag_list', tag_list: @task.tag_list
   p.task-create= @task.created_at.strftime("%Y-%m-%d %H:%M")
   p.task-desc= @task.description
+  .text-right
+    span 投稿者：
+    = link_to admin_user_path(@task.user) do
+      = @task.user.name
 
 - if @comments.empty?
   h2.p-3.text-center レビューがありません
 - else
   - @comments.each do |comment|
-    div.comment-box
+    .comment-box
       p.comment-body #{comment.body}
       p.comment-create #{comment.created_at.strftime("%Y-%m-%d %H:%M")}
+      .text-right
+        span 投稿者：
+        = link_to admin_user_path(comment.user) do
+          = comment.user.name
 
 == render 'comments/form', task: @task, comment: @comment
