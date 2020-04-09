@@ -57,6 +57,11 @@ crumb :new_task do
   link "業務スレッドを登録", new_task_path
 end
 
+crumb :edit_task do
+  link "業務スレッドを編集", edit_task_path
+  parent :task
+end
+
 crumb :contact do
   link "問い合わせ", inquiry_path
 end
