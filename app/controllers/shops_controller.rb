@@ -12,7 +12,7 @@ class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
 
-    @reviews = Review.where(shop_id: params[:id])
+    @reviews = Review.where(shop_id: params[:id]).includes([:user, :review_image_attachment])
     @review = Review.new
   end
 
