@@ -264,6 +264,11 @@ footer {
 .footer-content p small {
   color: #fff;
 }
+@media screen and (max-width: 768px) {
+  .footer-content li a {
+    font-size: 0.8rem;
+  }
+}
 
 .footer-logo a {
   color: #fff;
