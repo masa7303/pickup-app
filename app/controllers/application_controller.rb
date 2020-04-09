@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   def guest_edit
     @user = User.find(current_user.id)
     return unless @user.guest?
-    redirect_to dashboard_index_path, notice: '申し訳ございませんが、ゲストユーザーは編集できません'
+    flash[:alert] = '申し訳ございませんが、ゲストユーザーは編集できません'
+    redirect_back(fallback_location: root_path)
   end
 end
