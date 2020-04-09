@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   # before_action :require_admin
-  before_action :login_required
+  before_action :login_required, only: %i[index show edit update destroy search]
   before_action :guest_edit, only: %i[edit destroy]
 
   def index
