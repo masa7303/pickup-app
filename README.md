@@ -63,32 +63,32 @@
 
 # トップページ
 
-[top.pdf](https://github.com/masa7303/servant_app/files/4458531/top.pdf)
+![top.pdf](https://github.com/masa7303/servant_app/files/4458531/top.pdf)
 
 
 # ログインページ
 
-[login.pdf](https://github.com/masa7303/servant_app/files/4458535/login.pdf)
+![login.pdf](https://github.com/masa7303/servant_app/files/4458535/login.pdf)
 
 
 # 店舗ページ
 
-[shop.pdf](https://github.com/masa7303/servant_app/files/4458539/shop.pdf)
-[shop-show.pdf](https://github.com/masa7303/servant_app/files/4458543/shop-show.pdf)
-[review.pdf](https://github.com/masa7303/servant_app/files/4458544/review.pdf)
+![shop.pdf](https://github.com/masa7303/servant_app/files/4458539/shop.pdf)
+![shop-show.pdf](https://github.com/masa7303/servant_app/files/4458543/shop-show.pdf)
+![review.pdf](https://github.com/masa7303/servant_app/files/4458544/review.pdf)
 
 
 # 業務スレッドページ
 
-[task.pdf](https://github.com/masa7303/servant_app/files/4458546/task.pdf)
-[task-show.pdf](https://github.com/masa7303/servant_app/files/4458548/task-show.pdf)
+![task.pdf](https://github.com/masa7303/servant_app/files/4458546/task.pdf)
+![task-show.pdf](https://github.com/masa7303/servant_app/files/4458548/task-show.pdf)
 
 
 # ユーザー一覧・詳細ページ
 
-[user.pdf](https://github.com/masa7303/servant_app/files/4458551/user.pdf)
-[user-show.pdf](https://github.com/masa7303/servant_app/files/4458557/user-show.pdf)
+![user.pdf](https://github.com/masa7303/servant_app/files/4458551/user.pdf)
+![user-show.pdf](https://github.com/masa7303/servant_app/files/4458557/user-show.pdf)
 
 # マイページ
 
-[mypage.pdf](https://github.com/masa7303/servant_app/files/4458563/mypage.pdf)
+![mypage.pdf](https://github.com/masa7303/servant_app/files/4458563/mypage.pdf)
