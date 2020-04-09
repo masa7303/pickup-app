@@ -63,7 +63,7 @@
 
 # トップページ
 
-![top.pdf](https://github.com/masa7303/servant_app/files/4458531/top.pdf)
+![top](https://user-images.githubusercontent.com/50639339/78939399-03569600-7aef-11ea-8f84-9703bff1e317.png)
 
 
 # ログインページ
