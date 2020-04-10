@@ -4,6 +4,7 @@ class Shop < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   has_one_attached :image
+  validate :image_presence
 
   enum prefecture: {
     北海道: 1, 青森県: 2, 岩手県: 3, 宮城県: 4, 秋田県: 5, 山形県: 6, 福島県: 7,
@@ -20,5 +21,14 @@ class Shop < ApplicationRecord
   validates :prefecture, presence: true
   validates :address, presence: true
   validates :phone, presence: true
-  validates :image, presence: true
+
+  def image_presence
+    if image.attached?
+      if !image.content_type.in?(%('image/jpeg image/png'))
+        errors.add(:image, 'にはjpegまたはpngファイルを添付してください')
+      end
+    else
+      errors.add(:image, 'ファイルを添付してください')
+    end
+  end
 end

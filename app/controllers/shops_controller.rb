@@ -30,8 +30,7 @@ class ShopsController < ApplicationController
     if @shop.save
       redirect_to @shop, notice: "「#{@shop.name}」を登録しました"
     else
-      # redirect_to new_shop_path, flash: { error: @shop.errors.full_messages }
-      render :new
+      render :new, alert: "「#{@shop.name}」を登録できませんでした"
     end
   end
 
