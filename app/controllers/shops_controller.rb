@@ -14,11 +14,6 @@ class ShopsController < ApplicationController
 
     @reviews = Review.where(shop_id: params[:id]).includes([:user, :review_image_attachment])
     @review = Review.new
-
-    # shop_idが同一のreviewを探してtotal_scoreのみの配列を作る
-    scores = Review.where(movie_id: params[:id]).pluck(:rate)
-    # 合計を個数で割って平均を出す
-    gon.score_avg = scores.sum.fdiv(scores.length)
   end
 
   def new
