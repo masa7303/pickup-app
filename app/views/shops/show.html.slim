@@ -23,6 +23,20 @@
         tr
           th.bg-light.text-center.d-block 電話番号
           td.text-center.d-block= @shop.phone
+        tr
+          th.bg-light.text-center.d-block 平均評価
+          td.text-center.d-block
+            span.m-1 id="score_avg"
+              javascript:
+                $('#score_avg').raty({
+                  size: 36,
+                  starOff: "#{asset_path('star-off.png')}",
+                  starOn: "#{asset_path('star-on.png')}",
+                  starHalf: "#{asset_path('star-half.png')}",
+                  half: true,
+                  readOnly: true,
+                  score: gon.score_avg,
+                });
 
       .text-center.mt-5
         == render 'likes/likes_basic', shop: @shop
