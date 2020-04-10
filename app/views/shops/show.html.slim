@@ -26,16 +26,16 @@
         tr
           th.bg-light.text-center.d-block 平均評価
           td.text-center.d-block
-            span.m-1 id="score_avg"
+            span.m-1 id="rates_avg"
               javascript:
-                $('#score_avg').raty({
+                $('#rates_avg').raty({
                   size: 36,
                   starOff: "#{asset_path('star-off.png')}",
                   starOn: "#{asset_path('star-on.png')}",
                   starHalf: "#{asset_path('star-half.png')}",
                   half: true,
                   readOnly: true,
-                  score: gon.score_avg,
+                  score: gon.rate_avg,
                 });
 
       .text-center.mt-5
