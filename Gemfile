@@ -126,3 +126,6 @@ gem 'carrierwave'
 
 # AWSコンパイル用
 gem 'mini_racer'
+
+# JavaScript連携
+gem 'gon'
