@@ -1,18 +1,19 @@
-.row.user-detail-card
-  - users.each do |user|
-    .card.container.shadow-sm.col-md-4.user-card
-      .user_head.mt-4.mb-4.text-center
-        = image_tag user.image_url, size: "100x100",class: "img-circle pull-left profile-thumb rounded-circle mb-2"
-        = link_to admin_user_path(user), class:"row"
-          h3.mr-auto.ml-auto=  user.name
-      .row
-        .col-md.col-sm.col.p-0
-          .text-center
-            = image_tag('follower.png', class: "user-show-icon-img")
-          .text-center
-            strong= "#{user.followers.count}"
-        .col-md.col-sm.col.p-0
-          .text-center
-            = image_tag('follow.png', class: "user-show-icon-img")
-          .text-center
-            strong= "#{user.followings.count}"
+.container
+  .row.user-detail-card
+    - users.each do |user|
+      .card.shadow-sm.user-card.col-md-4
+        .user_head.mt-4.mb-4.text-center
+          = image_tag user.image_url, size: "100x100",class: "img-circle pull-left profile-thumb rounded-circle mb-2"
+          = link_to admin_user_path(user), class:"row"
+            h3.mr-auto.ml-auto=  user.name
+        .row
+          .col-md.col-sm.col.p-0
+            .text-center
+              = image_tag('follower.png', class: "user-show-icon-img")
+            .text-center
+              strong= "#{user.followers.count}"
+          .col-md.col-sm.col.p-0
+            .text-center
+              = image_tag('follow.png', class: "user-show-icon-img")
+            .text-center
+              strong= "#{user.followings.count}"
