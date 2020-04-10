@@ -32,7 +32,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to shop_path(params[:shop_id]), success: '口コミ投稿が完了しました'
     else
-      redirect_to shop_path(@shop), danger: '口コミ投稿が失敗しました'
+      redirect_to shop_path(@shop), alert: '口コミ投稿が失敗しました'
     end
   end
 

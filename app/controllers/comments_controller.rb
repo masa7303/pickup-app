@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_post, except: [:index, :destroy]
   before_action :guest_edit, only: %i[new create edit destroy]
-  
+
   def index
     @comments = Task.all
   end
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @task, notice: "コメントを登録しました"
     else
-      render :new
+      redirect_to @task, alert: 'コメントを登録できませんでした'
     end
   end
 
