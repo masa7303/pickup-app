@@ -16,6 +16,8 @@ class ShopsController < ApplicationController
     @reviews = Review.where(shop_id: params[:id]).includes([:user, :review_image_attachment])
     @review = Review.new
 
+    @rankings = Shop.all_rankings
+
     # shop_idが同一のreviewを探してrateのみの配列を作る
     rates = Review.where(shop_id: params[:id]).pluck(:rate)
     # 合計を個数で割って平均を出す
