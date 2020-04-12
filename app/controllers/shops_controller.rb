@@ -7,6 +7,7 @@ class ShopsController < ApplicationController
     @q = Shop.ransack(params[:q])
     @shops = @q.result(distinct: true).with_attached_image.page(params[:page]).per(6)
     @reviews = Review.recent.includes([:shop]).limit(5)
+    @rankings = Shop.all_rankings
   end
 
   def show
