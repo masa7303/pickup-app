@@ -11,9 +11,14 @@
 
 .card.bg-white.shadow-sm.mb-3
   .card-header.font-weight-bold
-    h2 スポンサードリンク
-  .card-body.text-center
-    = image_tag('adsence.png', class: "ad-img")
+    h2 いいね！が多い店舗
+  .card-body
+    - @rankings.each do |shop|
+      .col-md-12.mb-3
+        = link_to shop do
+          .card.p-3.sidebar-newreview-box
+            p.iine-count いいね！（ #{shop.likes.count} ）
+            h2.sidebar-review-shop-name #{shop.name} (#{shop.prefecture})
 
 = link_to inquiry_path do
   = image_tag('mail_banner.png', class: "ad-img mb-3")

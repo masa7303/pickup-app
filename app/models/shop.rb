@@ -31,4 +31,8 @@ class Shop < ApplicationRecord
       errors.add(:image, 'ファイルを添付してください')
     end
   end
+
+  def self.all_rankings
+    Shop.find(Like.group(:shop_id).order('count(shop_id) desc').limit(5).pluck(:shop_id))
+  end
 end
