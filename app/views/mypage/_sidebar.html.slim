@@ -23,6 +23,10 @@ aside#dashboard-sidebar
         = link_to mypage_comments_path(current_user), class: "d-block p-3" do
           i.fas.fa-comment
           span コメント
+      li.list-group-item.list-group-item-action.p-0
+        = link_to mypage_follows_path(current_user), class: "d-block p-3" do
+          i.fas.fa-comment
+          span フォロー/フォロワー
   .d-md-block.d-none
     ul.list-group.shadow-sm
       li.list-group-item.font-weight-bold.bg-light
