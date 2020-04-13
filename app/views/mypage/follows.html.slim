@@ -1,1 +1,52 @@
-p test
+- breadcrumb :myreview
+== render 'shared/breadcrumbs'
+
+.row.pt-3.pb-5
+  .col-sm-8.order-md-2.mb-3
+    .card.bg-white.border-none.shadow-sm.mb-3
+      .card-header.font-weight-bold
+        h2 フォロー/フォロワー
+      .card-body
+        .width-30.mt-5
+          ul#tab-menu.clearfix.mypage-tab-menu
+            li
+              a.active href="#tab_followers"
+                .text-center
+                  = image_tag('follower.png', class: "user-show-icon-img")
+                  strong.tab-menu_label フォロワー
+                .text-center
+                  strong= current_user.followers.count
+                  span 人
+            li
+              a href="#tab_followings"
+                .text-center
+                  = image_tag('follow.png', class: "user-show-icon-img")
+                  strong.tab-menu_label フォロー
+                .text-center
+                  strong= current_user.followings.count
+                  span 人
+
+        #tab-contents.clearfix
+          #tab_followers.tab
+            .flex.user_show_container
+              = render 'admin/users/users', users: @my_followers
+            = paginate @my_followers
+          #tab_followings.tab
+            .flex.user_show_container
+              = render 'admin/users/users', users: @my_followings
+            div.text-center
+              = paginate @my_followings
+        javascript:
+          $('#tab-contents .tab[id != "tab_followers"]').hide();
+
+          $('#tab-menu a').on('click', function() {
+            $("#tab-contents .tab").hide();
+            $("#tab-menu .active").removeClass("active");
+            $(this).addClass("active");
+            $($(this).attr("href")).show();
+            return false;
+          });
+
+
+  .col-sm-4.order-md-1
+    = render 'mypage/sidebar'

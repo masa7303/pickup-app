@@ -73,3 +73,7 @@
 .mypage-task-ed-del {
   display: flex;
 }
+
+.mypage-tab-menu li {
+  width: calc(100% / 2)!important;
+}
