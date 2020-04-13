@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     get :profile
     get :email
     get :password
-    get :follow
+    get :follows
   end
 
   scope :mypage do
