@@ -15,6 +15,11 @@ class MypageController < ApplicationController
     @my_comments = current_user.comments.includes([:task]).page(params[:page]).order(created_at: :desc)
   end
 
+  def follows
+    @my_followings = current_user.followings.page(params[:page]).per(6)
+    @my_followers = current_user.followers.page(params[:page]).per(6)
+  end
+
   def profile; end
 
   def email; end
