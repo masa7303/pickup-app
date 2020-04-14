@@ -165,6 +165,12 @@ a:hover {
 .flex li {
   margin-left: 0;
 }
+@media screen and (max-width: 768px) {
+  .flex li {
+    margin-left: 0;
+    display: block;
+  }
+}
 
 // ヘッダー画像
 .header_bg_img {
