@@ -1,13 +1,13 @@
 class ShopsController < ApplicationController
   before_action :login_required, except: :new
   before_action :recent_review
+  before_action :likes_ranking, only: %i[index show new create]
   before_action :guest_edit, only: %i[create edit]
 
   def index
     @q = Shop.ransack(params[:q])
     @shops = @q.result(distinct: true).with_attached_image.page(params[:page]).per(6)
     @reviews = Review.recent.includes([:shop]).limit(5)
-    @rankings = Shop.all_rankings
   end
 
   def show
@@ -15,8 +15,6 @@ class ShopsController < ApplicationController
 
     @reviews = Review.where(shop_id: params[:id]).includes([:user, :review_image_attachment])
     @review = Review.new
-
-    @rankings = Shop.all_rankings
 
     # shop_idが同一のreviewを探してrateのみの配列を作る
     rates = Review.where(shop_id: params[:id]).pluck(:rate)
@@ -59,5 +57,9 @@ class ShopsController < ApplicationController
 
   def recent_review
     @recent_reviews = Review.recent.includes([:shop]).limit(5)
+  end
+
+  def likes_ranking
+    @rankings = Shop.all_rankings
   end
 end
